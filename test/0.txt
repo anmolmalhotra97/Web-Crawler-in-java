@@ -1,0 +1,1683 @@
+<!doctype html>
+<html itemscope itemtype="http://schema.org/QAPage" class="html__responsive">
+ <head> 
+  <title>java - How to solve javax.net.ssl.SSLHandshakeException Error? - Stack Overflow</title> 
+  <link rel="shortcut icon" href="https://cdn.sstatic.net/Sites/stackoverflow/img/favicon.ico?v=4f32ecc8f43d"> 
+  <link rel="apple-touch-icon image_src" href="https://cdn.sstatic.net/Sites/stackoverflow/img/apple-touch-icon.png?v=c78bd457575a"> 
+  <link rel="search" type="application/opensearchdescription+xml" title="Stack Overflow" href="/opensearch.xml"> 
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0"> 
+  <meta property="og:type" content="website"> 
+  <meta property="og:url" content="https://stackoverflow.com/questions/6659360/how-to-solve-javax-net-ssl-sslhandshakeexception-error"> 
+  <meta property="og:site_name" content="Stack Overflow"> 
+  <meta property="og:image" itemprop="image primaryImageOfPage" content="https://cdn.sstatic.net/Sites/stackoverflow/img/apple-touch-icon@2.png?v=73d79a89bded"> 
+  <meta name="twitter:card" content="summary"> 
+  <meta name="twitter:domain" content="stackoverflow.com"> 
+  <meta name="twitter:title" property="og:title" itemprop="title name" content="How to solve javax.net.ssl.SSLHandshakeException Error?"> 
+  <meta name="twitter:description" property="og:description" itemprop="description" content="I connected with VPN to setup the inventory API to get product list and it works fine. Once I get the result from the web-service and i bind to UI. And also I integrated PayPal with my application ..."> 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> 
+  <script src="https://cdn.sstatic.net/Js/stub.en.js?v=4a06db321221"></script> 
+  <link rel="stylesheet" type="text/css" href="https://cdn.sstatic.net/Shared/stacks.css?v=5023e4724ed5"> 
+  <link rel="stylesheet" type="text/css" href="https://cdn.sstatic.net/Sites/stackoverflow/primary-unified.css?v=67f665a197c9"> 
+  <link rel="alternate" type="application/atom+xml" title="Feed for question 'How to solve javax.net.ssl.SSLHandshakeException Error?'" href="/feeds/question/6659360"> 
+  <meta name="twitter:app:country" content="US"> 
+  <meta name="twitter:app:name:iphone" content="Stack Exchange iOS"> 
+  <meta name="twitter:app:id:iphone" content="871299723"> 
+  <meta name="twitter:app:url:iphone" content="se-zaphod://stackoverflow.com/questions/6659360/how-to-solve-javax-net-ssl-sslhandshakeexception-error"> 
+  <meta name="twitter:app:name:ipad" content="Stack Exchange iOS"> 
+  <meta name="twitter:app:id:ipad" content="871299723"> 
+  <meta name="twitter:app:url:ipad" content="se-zaphod://stackoverflow.com/questions/6659360/how-to-solve-javax-net-ssl-sslhandshakeexception-error"> 
+  <meta name="twitter:app:name:googleplay" content="Stack Exchange Android"> 
+  <meta name="twitter:app:url:googleplay" content="http://stackoverflow.com/questions/6659360/how-to-solve-javax-net-ssl-sslhandshakeexception-error"> 
+  <meta name="twitter:app:id:googleplay" content="com.stackexchange.marvin"> 
+  <script>
+
+            StackExchange.ready(function () {
+                                    
+                    StackExchange.using("snippets", function () {
+                        StackExchange.snippets.initSnippetRenderer();
+                    });
+                    
+
+                StackExchange.using("postValidation", function () {
+                    StackExchange.postValidation.initOnBlurAndSubmit($('#post-form'), 2, 'answer');
+                });
+
+                
+                StackExchange.question.init({showAnswerHelp:true,totalCommentCount:1,shownCommentCount:1,highlightColor:'#F4A83D',backgroundColor:'#FFF',questionId:6659360});
+
+                styleCode();
+
+                    StackExchange.realtime.subscribeToQuestion('1', '6659360');
+                                                    StackExchange.using("gps", function () { StackExchange.gps.trackOutboundClicks('#content', '.post-text'); });
+
+            });
+        </script> 
+  <script>
+        StackExchange.init({"locale":"en","serverTime":1544299911,"routeName":"Questions/Show","stackAuthUrl":"https://stackauth.com","networkMetaHostname":"meta.stackexchange.com","site":{"name":"Stack Overflow","description":"Q&A for professional and enthusiast programmers","isNoticesTabEnabled":true,"enableNewTagCreationWarning":true,"insertSpaceAfterNameTabCompletion":false,"id":1,"childUrl":"https://meta.stackoverflow.com","enableSocialMediaInSharePopup":true,"protocol":"https"},"user":{"fkey":"341e007e34bbf567331246acd356dec0d6642afab0c6810ab3896cde7be14fb9","tid":"918a7504-0861-7d5f-de58-d1f368c3cd92","rep":0,"isAnonymous":true,"isAnonymousNetworkWide":true,"ab":{"inline_signup_hero":{"v":"d","g":1}}},"events":{"postType":{"question":1},"postEditionSection":{"title":1,"body":2,"tags":3}},"story":{"minCompleteBodyLength":75,"likedTagsMaxLength":300,"dislikedTagsMaxLength":300},"jobPreferences":{"maxNumDeveloperRoles":2,"maxNumIndustries":4},"svgIconPath":"https://cdn.sstatic.net/Img/svg-icons","svgIconHash":"38192da1e2db"}, {"site":{"allowImageUploads":true,"enableUserHovercards":true,"styleCode":true,"enableImgurHttps":true,"forceHttpsImages":true,"stacksValidation":true},"userMessaging":{},"comments":{},"userProfile":{"openGraphAPIKey":"58740831ad23540e00c58987"},"tags":{},"accounts":{"currentPasswordRequiredForChangingStackIdPassword":true},"flags":{"allowRetractingFlags":true},"snippets":{"snippetsEnabled":true,"renderDomain":"stacksnippets.net"},"paths":{},"markdown":{"asteriskIntraWordEmphasis":true},"monitoring":{"clientTimingsAbsoluteTimeout":30000,"clientTimingsDebounceTimeout":1000},"mentions":{"maxNumUsersInDropdown":50},"slack":{"sidebarAdDismissCookie":"slack-sidebar-ad"}});
+        StackExchange.using.setCacheBreakers({"js/prettify-full.en.js":"d4cebec4dee6","js/moderator.en.js":"c48addfbc3c8","js/full-anon.en.js":"9186c2f99d56","js/full.en.js":"5f54d73692dd","js/wmd.en.js":"137e975b43fe","js/mobile.en.js":"485a932a3088","js/help.en.js":"a1c2d4ed1321","js/tageditor.en.js":"8fc88803d94e","js/tageditornew.en.js":"1f9a6756cbd4","js/inline-tag-editing.en.js":"7820c03c6843","js/revisions.en.js":"8f22ba768cac","js/review.en.js":"c4921de627c3","js/tagsuggestions.en.js":"78eee7c19ab2","js/post-validation.en.js":"d4e9f25d6ecc","js/explore-qlist.en.js":"13036a5f10ad","js/events.en.js":"2d348060df5a","js/keyboard-shortcuts.en.js":"06387d9eaf33","js/external-editor.en.js":"6db0df3b3951","js/adops.en.js":"22a9bd59b1e9","js/begin-edit-event.en.js":"9dd9c799d430","js/external-editor.en.js":"6db0df3b3951","js/snippet-javascript.en.js":"453ad6a31ef4","js/snippet-javascript-codemirror.en.js":"bd6888ae9d99"});
+        StackExchange.using("gps", function() {
+             StackExchange.gps.init(true);
+        });
+    </script> 
+  <noscript id="noscript-css">
+   <style>body,.top-bar{margin-top:1.9em}</style>
+  </noscript> 
+ </head> 
+ <body class="question-page unified-theme"> 
+  <div id="notify-container"></div> 
+  <div id="custom-header"></div> 
+  <header class="top-bar js-top-bar _fixed top-bar__network"> 
+   <div class="-container"> 
+    <div class="-main"> 
+     <a href="#" class="left-sidebar-toggle p0 ai-center jc-center js-left-sidebar-toggle"><span class="ps-relative"></span></a> 
+     <a href="https://stackoverflow.com" class="-logo js-gps-track" data-gps-track="top_nav.click({is_current:false, location:2, destination:8})"> <span class="-img _glyph">Stack Overflow</span> </a> 
+    </div> 
+    <form id="search" action="/search" method="get" class="searchbar js-searchbar " autocomplete="off" role="search"> 
+     <div class="ps-relative"> 
+      <input name="q" type="text" placeholder="Search…" value="" autocomplete="off" maxlength="240" class="f-input js-search-field "> 
+      <button type="submit" aria-label="Search..." class="s-btn s-btn__primary btn-topbar-primary js-search-submit">
+       <svg aria-hidden="true" class="svg-icon iconSearch" width="18" height="18" viewbox="0 0 18 18">
+        <path d="M12.86 11.32L18 16.5 16.5 18l-5.18-5.14v-.35a7 7 0 1 1 1.19-1.19h.35zM7 12A5 5 0 1 0 7 2a5 5 0 0 0 0 10z" />
+       </svg></button> 
+     </div> 
+    </form> 
+    <ol class="-secondary js-secondary-topbar-links drop-icons-responsively"> 
+     <li class="-item searchbar-trigger js-searchbar-trigger"><a href="#" class="-link">
+       <svg aria-hidden="true" class="svg-icon iconSearch" width="18" height="18" viewbox="0 0 18 18">
+        <path d="M12.86 11.32L18 16.5 16.5 18l-5.18-5.14v-.35a7 7 0 1 1 1.19-1.19h.35zM7 12A5 5 0 1 0 7 2a5 5 0 0 0 0 10z" />
+       </svg></a></li> 
+     <li class="-item"> <a href="https://stackexchange.com/users/?tab=inbox" class="-link js-inbox-button" title="Recent inbox messages"> 
+       <svg aria-hidden="true" class="svg-icon iconInbox" width="20" height="18" viewbox="0 0 20 18">
+        <path d="M15.19 1H4.63c-.85 0-1.6.54-1.85 1.35L0 10.79V15c0 1.1.9 2 2 2h16a2 2 0 0 0 2-2v-4.21l-2.87-8.44A2 2 0 0 0 15.19 1zm-.28 10l-2 2h-6l-2-2H1.96L4.4 3.68A1 1 0 0 1 5.35 3h9.12a1 1 0 0 1 .95.68L17.86 11h-2.95z" />
+       </svg> <span class="indicator-badge js-unread-count _important" style="display: none;"></span> </a> </li> 
+     <li class="-item"> <a href="https://stackexchange.com/users/?tab=reputation" class="-link js-achievements-button" title="Recent achievements: reputation, badges, and privileges earned" data-unread-class="_highlighted-positive"> 
+       <svg aria-hidden="true" class="svg-icon iconAchievements" width="18" height="18" viewbox="0 0 18 18">
+        <path d="M15 2V1H3v1H0v4c0 1.6 1.4 3 3 3v1c.4 1.5 3 2.6 5 3v2H5s-1 1.5-1 2h10c0-.4-1-2-1-2h-3v-2c2-.4 4.6-1.5 5-3V9c1.6-.2 3-1.4 3-3V2h-3zM3 7c-.5 0-1-.5-1-1V4h1v3zm8.4 2.5L9 8 6.6 9.4l1-2.7L5 5h3l1-2.7L10 5h2.8l-2.3 1.8 1 2.7h-.1zM16 6c0 .5-.5 1-1 1V4h1v2z" />
+       </svg> <span class="indicator-badge js-unread-count _positive" style="display: none;"></span> </a> </li> 
+     <li class="-item help-button-item" data-remove-order="1"><a href="#" class="-link js-help-button" title="Help Center and other resources"> 
+       <svg aria-hidden="true" class="svg-icon iconHelp" width="18" height="18" viewbox="0 0 18 18">
+        <path d="M9 1a8 8 0 1 0 0 16A8 8 0 0 0 9 1zm.81 12.13c-.02.71-.55 1.15-1.24 1.13-.66-.02-1.17-.49-1.15-1.2.02-.72.56-1.18 1.22-1.16.7.03 1.2.51 1.17 1.23zM11.77 8a5.8 5.8 0 0 1-1.02.91l-.53.37c-.26.2-.42.43-.5.69a4 4 0 0 0-.09.75c0 .05-.03.16-.18.16H7.88c-.16 0-.18-.1-.18-.15.03-.66.12-1.21.4-1.66a5.29 5.29 0 0 1 1.43-1.22c.16-.12.28-.25.38-.39a1.34 1.34 0 0 0 .02-1.71c-.24-.31-.51-.46-1.03-.46-.51 0-.8.26-1.02.6-.21.33-.18.73-.18 1.1H5.75c0-1.38.35-2.25 1.1-2.76.52-.35 1.17-.5 1.93-.5 1 0 1.79.18 2.49.71.64.5.98 1.18.98 2.12 0 .57-.2 1.05-.48 1.44z" />
+       </svg> </a></li> 
+     <li class="-item"> <a href="https://stackexchange.com" class="-link js-site-switcher-button js-gps-track" data-gps-track="site_switcher.show" title="A list of all 174 Stack Exchange sites"> 
+       <svg aria-hidden="true" class="svg-icon iconStackExchange" width="18" height="18" viewbox="0 0 18 18">
+        <path d="M1 13c0 1.1.9 2 2 2h8v3l3-3h1a2 2 0 0 0 2-2v-2H1v2zM15 1H3a2 2 0 0 0-2 2v2h16V3a2 2 0 0 0-2-2zM1 6h16v4H1V6z" />
+       </svg> </a> </li> 
+     <li class="-ctas"> <a href="https://stackoverflow.com/users/login?ssrc=head&amp;returnurl=https%3a%2f%2fstackoverflow.com%2fquestions%2f6659360%2fhow-to-solve-javax-net-ssl-sslhandshakeexception-error" class="login-link s-btn btn-topbar-clear py8" rel="nofollow">Log In</a> <a href="https://stackoverflow.com/users/signup?ssrc=head&amp;returnurl=%2fusers%2fstory%2fcurrent" class="login-link s-btn s-btn__primary py8 btn-topbar-primary" rel="nofollow" data-ga="[&quot;sign up&quot;,&quot;Sign Up Navigation&quot;,&quot;Header&quot;,null,null]">Sign Up</a> </li> 
+     <li class="-dialog-container js-topbar-dialog-corral"> 
+      <div class="topbar-dialog siteSwitcher-dialog dno"> 
+       <div class="header"> 
+        <h3><a href="https://stackoverflow.com">current community</a> </h3> 
+       </div> 
+       <div class="modal-content current-site-container"> 
+        <ul class="current-site"> 
+         <li class="grid"> 
+          <div class="fl1"> 
+           <a href="https://stackoverflow.com" class="current-site-link site-link js-gps-track grid gs8 gsx" data-id="1" data-gps-track="site_switcher.click({ item_type:3 })"> 
+            <div class="favicon favicon-stackoverflow site-icon grid--cell" title="Stack Overflow"></div> <span class="grid--cell fl1"> Stack Overflow </span> </a> 
+          </div> 
+          <div class="related-links"> 
+           <a href="https://stackoverflow.com/help" class="js-gps-track" data-gps-track="site_switcher.click({ item_type:14 })">help</a> 
+           <a href="https://chat.stackoverflow.com" class="js-gps-track" data-gps-track="site_switcher.click({ item_type:6 })">chat</a> 
+          </div> </li> 
+         <li class="related-site grid"> 
+          <div class="L-shaped-icon-container"> 
+           <span class="L-shaped-icon"></span> 
+          </div> <a href="https://meta.stackoverflow.com" class="site-link js-gps-track grid gs8 gsx" data-id="552" data-gps-track="site.switch({ target_site:552, item_type:3 }),site_switcher.click({ item_type:4 })"> 
+           <div class="favicon favicon-stackoverflowmeta site-icon grid--cell" title="Meta Stack Overflow"></div> <span class="grid--cell fl1"> Meta Stack Overflow </span> </a> </li> 
+        </ul> 
+       </div> 
+       <div class="header" id="your-communities-header"> 
+        <h3> your communities </h3> 
+       </div> 
+       <div class="modal-content" id="your-communities-section"> 
+        <div class="call-to-login"> 
+         <a href="https://stackoverflow.com/users/signup?ssrc=site_switcher&amp;returnurl=%2fusers%2fstory%2fcurrent" class="login-link js-gps-track" data-gps-track="site_switcher.click({ item_type:10 })">Sign up</a> or 
+         <a href="https://stackoverflow.com/users/login?ssrc=site_switcher&amp;returnurl=https%3a%2f%2fstackoverflow.com%2fquestions%2f6659360%2fhow-to-solve-javax-net-ssl-sslhandshakeexception-error" class="login-link js-gps-track" data-gps-track="site_switcher.click({ item_type:11 })">log in</a> to customize your list. 
+        </div> 
+       </div> 
+       <div class="header"> 
+        <h3><a href="https://stackexchange.com/sites">more stack exchange communities</a> </h3> 
+        <a href="https://stackoverflow.blog" class="fr">company blog</a> 
+       </div> 
+       <div class="modal-content"> 
+        <div class="child-content"></div> 
+       </div> 
+      </div> 
+      <div class="topbar-dialog help-dialog js-help-dialog dno"> 
+       <div class="modal-content"> 
+        <ul> 
+         <li> <a href="/tour" class="js-gps-track" data-gps-track="help_popup.click({ item_type:1 })"> Tour <span class="item-summary"> Start here for a quick overview of the site </span> </a> </li> 
+         <li> <a href="/help" class="js-gps-track" data-gps-track="help_popup.click({ item_type:4 })"> Help Center <span class="item-summary"> Detailed answers to any questions you might have </span> </a> </li> 
+         <li> <a href="https://meta.stackoverflow.com" class="js-gps-track" data-gps-track="help_popup.click({ item_type:2 })"> Meta <span class="item-summary"> Discuss the workings and policies of this site </span> </a> </li> 
+         <li> <a href="https://stackoverflow.com/company/about" class="js-gps-track" data-gps-track="help_popup.click({ item_type:6 })"> About Us <span class="item-summary"> Learn more about Stack Overflow the company </span> </a> </li> 
+         <li> <a href="https://www.stackoverflowbusiness.com/?ref=topbar_help" class="js-gps-track" data-gps-track="help_popup.click({ item_type:7 })"> Business <span class="item-summary"> Learn more about hiring developers or posting ads with us </span> </a> </li> 
+        </ul> 
+       </div> 
+      </div> 
+      <div class="topbar-dialog leftnav-dialog js-leftnav-dialog dno"> 
+       <div class="left-sidebar js-unpinned-left-sidebar" data-can-be="left-sidebar" data-is-here-when="sm"></div> 
+      </div> </li> 
+    </ol> 
+   </div> 
+  </header> 
+  <div id="js-gdpr-consent-banner" class="p16 bg-black-700 ff-sans fc-white ps-fixed b0 l0 r0 z-banner" role="banner" aria-hidden="false"> 
+   <div class="wmx8 mx-auto grid jc-center" role="alertdialog" aria-describedby="notice-message"> 
+    <div class="grid--cell mr12" aria-label="notice-message"> 
+     <p class="mb0 lh-lg"> By using our site, you acknowledge that you have read and understand our <a class="s-link s-link__inherit td-underline fc-white" target="_blank" href="https://stackoverflow.com/legal/cookie-policy">Cookie Policy</a>, <a class="s-link s-link__inherit td-underline fc-white" target="_blank" href="https://stackoverflow.com/legal/privacy-policy">Privacy Policy</a>, and our <a class="s-link s-link__inherit td-underline fc-white" target="_blank" href="https://stackoverflow.com/legal/terms-of-service/public">Terms of Service</a>. </p> 
+    </div> 
+    <a class="grid--cell fc-white js-notice-close" aria-label="notice-dismiss"> 
+     <svg aria-hidden="true" class="svg-icon m0 iconClear" width="18" height="18" viewbox="0 0 18 18">
+      <path d="M15 4.41L13.59 3 9 7.59 4.41 3 3 4.41 7.59 9 3 13.59 4.41 15 9 10.41 13.59 15 15 13.59 10.41 9z" />
+     </svg> </a> 
+   </div> 
+  </div> 
+  <script>
+        StackExchange.ready(function () { StackExchange.topbar.init({ observeSize: true }); });
+        StackExchange.scrollPadding.setPaddingTop(50, 10);     </script> 
+  <div class="container  "> 
+   <div id="left-sidebar" data-is-here-when="md lg" class="left-sidebar js-pinned-left-sidebar"> 
+    <div class="left-sidebar--sticky-container js-sticky-leftnav"> 
+     <nav role="navigation"> 
+      <ol class="nav-links"> 
+       <li> </li>
+       <li> <a href="/" class="pl8 js-gps-track nav-links--link" data-gps-track="top_nav.click({is_current:false, location:2, destination:8})"> Home </a> </li>  
+       <li> 
+        <ol class="nav-links"> 
+         <li class="fs-fine tt-uppercase ml8 mt16 mb4 fc-light">Public</li> 
+         <li class=" youarehere"> <a id="nav-questions" href="/questions" class="pl8 js-gps-track nav-links--link -link__with-icon" data-gps-track="top_nav.click({is_current:true, location:2, destination:1})"> 
+           <svg aria-hidden="true" class="svg-icon iconGlobe" width="18" height="18" viewbox="0 0 18 18">
+            <path d="M9 1a8 8 0 1 0 0 16A8 8 0 0 0 9 1zM8 15.32a6.4 6.4 0 0 1-5.23-7.75L7 11.68v.8c0 .88.12 1.32 1 1.32v1.52zm5.72-2c-.2-.66-1-1.32-1.72-1.32h-1v-2c0-.44-.56-1-1-1H6V7h1c.44 0 1-.56 1-1V5h2c.88 0 1.4-.72 1.4-1.6v-.33a6.4 6.4 0 0 1 2.32 10.24z" />
+           </svg> <span class="-link--channel-name">Stack Overflow</span> </a> </li> 
+         <li> <a id="nav-tags" href="/tags" class=" js-gps-track nav-links--link" data-gps-track="top_nav.click({is_current:false, location:2, destination:2})"> Tags </a> </li> 
+         <li> <a id="nav-users" href="/users" class=" js-gps-track nav-links--link" data-gps-track="top_nav.click({is_current:false, location:2, destination:3})"> Users </a> </li> 
+         <li> <a id="nav-jobs" href="/jobs?med=site-ui&amp;ref=jobs-tab" class=" js-gps-track nav-links--link" data-gps-track="top_nav.click({is_current:false, location:2, destination:6})"> Jobs </a> </li> 
+        </ol> </li> 
+       <li> 
+        <ol class="nav-links"> 
+         <li class="fs-fine tt-uppercase ml8 mt24 mb4 fc-light"> Teams </li> 
+         <li class="ps-relative"> <a href="https://stackoverflow.com/teams" class="pl8 js-gps-track nav-links--link -link__with-icon" title="A private, secure home for your team's questions and answers. Starts at $10/month" data-gps-track="teams.create.left-sidenav.click" data-ga="[&quot;teams traffic&quot;,&quot;left nav cta&quot;,&quot;stackoverflow.com/teams&quot;,null,{&quot;dimension4&quot;:&quot;teams&quot;}]"> 
+           <svg aria-hidden="true" class="svg-icon iconPlus" width="18" height="18" viewbox="0 0 18 18">
+            <path d="M10 2H8v6H2v2h6v6h2v-6h6V8h-6z"></path>
+           </svg> <span class="js-create-team-btn-with-tooltip -link--channel-name">Create Team</span> </a> 
+          <div class="d-none create-team-tooltip js-create-team-tooltip bar-sm bg-blue-500 fc-white l100 md:d-none mln24 new-feature-wrapper p16 pr32 t0 ws2" data-cookie="notice-ctt" data-expire-date="1859919111839"> 
+           <svg aria-hidden="true" class="svg-icon ps-absolute r12 c-pointer iconClearSm" width="14" height="14" viewbox="0 0 14 14">
+            <path d="M12 3.41L10.59 2 7 5.59 3.41 2 2 3.41 5.59 7 2 10.59 3.41 12 7 8.41 10.59 12 12 10.59 8.41 7z" />
+           </svg> 
+           <p class="mb0">Q&amp;A for work. A dedicated place to share your team’s knowledge.</p> 
+          </div> <script>
+    StackExchange.ready(function () {
+        StackExchange.Notice.tooltipInit();
+    });
+</script> </li> 
+        </ol> </li> 
+      </ol> 
+     </nav> 
+    </div> 
+   </div> 
+   <div id="content" class="snippet-hidden"> 
+    <div itemscope itemtype="http://schema.org/Question"> 
+     <link itemprop="image" href="https://cdn.sstatic.net/Sites/stackoverflow/img/apple-touch-icon.png?v=c78bd457575a"> 
+     <div class="inner-content clearfix"> 
+      <style>.everyoneloves__top-leaderboard:empty,.everyoneloves__mid-leaderboard:empty{                height:90px;width:728px;box-sizing:border-box;
+}</style> 
+      <div id="dfp-tlb" class="everyonelovesstackoverflow everyoneloves__top-leaderboard"></div> 
+      <div id="question-header" class="grid"> 
+       <h1 itemprop="name" class="grid--cell fs-headline1 fl1 wb-break-word"><a href="/questions/6659360/how-to-solve-javax-net-ssl-sslhandshakeexception-error" class="question-hyperlink">How to solve javax.net.ssl.SSLHandshakeException Error?</a></h1> 
+       <div class="pl8 aside-cta grid--cell" role="navigation" aria-label="ask new question"> 
+        <a href="/questions/ask" class="d-inline-flex ai-center ws-nowrap s-btn s-btn__primary">Ask Question</a> 
+       </div> 
+      </div> 
+      <div id="mainbar" role="main" aria-label="question and answers"> 
+       <div class="question" data-questionid="6659360" id="question"> 
+        <div class="post-layout"> 
+         <div class="votecell post-layout--left"> 
+          <div class="vote"> 
+           <input type="hidden" name="_id_" value="6659360"> 
+           <a class="vote-up-off" title="This question shows research effort; it is useful and clear">up vote</a> 
+           <span itemprop="upvoteCount" class="vote-count-post ">79</span> 
+           <a class="vote-down-off" title="This question does not show any research effort; it is unclear or not useful">down vote</a> 
+           <a class="star-off" href="#">favorite</a> 
+           <div class="favoritecount">
+            <b>44</b>
+           </div> 
+          </div> 
+         </div> 
+         <div class="postcell post-layout--right"> 
+          <div class="post-text" itemprop="text"> 
+           <p>I connected with VPN to setup the inventory API to get product list and it works fine. Once I get the result from the web-service and i bind to UI. And also I integrated PayPal with my application for make Express checkout when I make a call for payment I'm facing this error. I use servlet for back-end process. Can any one say how to fix this issue?</p> 
+           <pre><code>javax.net.ssl.SSLHandshakeException: sun.security.validator.ValidatorException: 
+PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException:
+unable to find valid certification path to requested target
+</code></pre> 
+          </div> 
+          <div class="post-taglist grid gs4 gsy fd-column"> 
+           <div class="grid ps-relative d-block"> 
+            <a href="/questions/tagged/java" class="post-tag" title="show questions tagged 'java'" rel="tag">java</a> 
+            <a href="/questions/tagged/servlets" class="post-tag" title="show questions tagged 'servlets'" rel="tag">servlets</a> 
+            <a href="/questions/tagged/paypal" class="post-tag" title="show questions tagged 'paypal'" rel="tag">paypal</a> 
+            <a href="/questions/tagged/vpn" class="post-tag" title="show questions tagged 'vpn'" rel="tag">vpn</a> 
+            <a href="/questions/tagged/sslhandshakeexception" class="post-tag" title="show questions tagged 'sslhandshakeexception'" rel="tag">sslhandshakeexception</a> 
+           </div> 
+          </div> 
+          <div class="mb0 "> 
+           <div class="mt16 pt4 grid gs8 gsy fw-wrap jc-end ai-start"> 
+            <div class="grid--cell mr16" style="flex: 1 1 100px;"> 
+             <div class="post-menu">
+              <a href="/q/6659360" title="short permalink to this question" class="short-link" id="link-post-6659360">share</a>
+              <span class="lsep">|</span>
+              <a href="/posts/6659360/edit" class="suggest-edit-post" title="">improve this question</a>
+             </div> 
+            </div> 
+            <div class="post-signature grid--cell"> 
+             <div class="user-info user-hover"> 
+              <div class="user-action-time"> 
+               <a href="/posts/6659360/revisions" title="show all edits to this post">edited <span title="2011-07-12 09:14:43Z" class="relativetime">Jul 12 '11 at 9:14</span></a> 
+              </div> 
+              <div class="user-gravatar32"> 
+               <a href="/users/633239/javanna">
+                <div class="gravatar-wrapper-32">
+                 <img src="https://i.stack.imgur.com/qNUpW.jpg?s=32&amp;g=1" alt="" width="32" height="32">
+                </div></a> 
+              </div> 
+              <div class="user-details"> 
+               <a href="/users/633239/javanna">javanna</a> 
+               <div class="-flair"> 
+                <span class="reputation-score" title="reputation score 45,705" dir="ltr">45.7k</span>
+                <span title="10 gold badges"><span class="badge1"></span><span class="badgecount">10</span></span>
+                <span title="123 silver badges"><span class="badge2"></span><span class="badgecount">123</span></span>
+                <span title="118 bronze badges"><span class="badge3"></span><span class="badgecount">118</span></span> 
+               </div> 
+              </div> 
+             </div> 
+            </div> 
+            <div class="post-signature owner grid--cell"> 
+             <div class="user-info user-hover"> 
+              <div class="user-action-time">
+                asked 
+               <span title="2011-07-12 04:03:09Z" class="relativetime">Jul 12 '11 at 4:03</span> 
+              </div> 
+              <div class="user-gravatar32"> 
+               <a href="/users/504130/selladurai">
+                <div class="gravatar-wrapper-32">
+                 <img src="https://www.gravatar.com/avatar/dfa3978b043d6b5fe00dd5a5b8e22c8d?s=32&amp;d=identicon&amp;r=PG" alt="" width="32" height="32">
+                </div></a> 
+              </div> 
+              <div class="user-details"> 
+               <a href="/users/504130/selladurai">selladurai</a> 
+               <div class="-flair"> 
+                <span class="reputation-score" title="reputation score " dir="ltr">2,552</span>
+                <span title="9 gold badges"><span class="badge1"></span><span class="badgecount">9</span></span>
+                <span title="49 silver badges"><span class="badge2"></span><span class="badgecount">49</span></span>
+                <span title="85 bronze badges"><span class="badge3"></span><span class="badgecount">85</span></span> 
+               </div> 
+              </div> 
+             </div> 
+            </div> 
+           </div> 
+          </div> 
+         </div> 
+         <div class="post-layout--right"> 
+          <div id="comments-6659360" class="comments js-comments-container "> 
+           <ul class="comments-list js-comments-list" data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true"> 
+            <li id="comment-11844126" class="comment js-comment " data-comment-id="11844126"> 
+             <div class="js-comment-actions comment-actions"> 
+              <div class="comment-score"> 
+               <span title="number of 'useful comment' votes received" class="cool">1</span> 
+              </div> 
+             </div> 
+             <div class="comment-text js-comment-text-and-form"> 
+              <div class="comment-body" style="display: block;"> 
+               <span class="comment-copy">what I would like to know, which exact target was in thath case... You get an exception, but you get no information about target, which might be different of what you expect.. I have such case, I am sure my link has certificate, and I am still getting this exception</span> –&nbsp;
+               <a href="/users/88448/ante-sabo" title="1,491 reputation" class="comment-user">ante.sabo</a> 
+               <span class="comment-date" dir="ltr"><span title="2012-02-21 12:41:03Z" class="relativetime-clean">Feb 21 '12 at 12:41</span></span> 
+              </div> 
+             </div> </li> 
+           </ul> 
+          </div> 
+          <div id="comments-link-6659360" data-rep="50" data-anon="true"> 
+           <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid answering questions in comments.">add a comment</a>
+           <span class="js-link-separator dno">&nbsp;|&nbsp;</span> 
+           <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="#" onclick=""></a> 
+          </div> 
+         </div> 
+        </div> 
+       </div> 
+       <div id="dfp-isb" class="everyonelovesstackoverflow everyoneloves__inline-sidebar"></div> 
+       <div id="answers"> 
+        <a name="tab-top"></a> 
+        <div id="answers-header"> 
+         <div class="subheader answers-subheader"> 
+          <h2 data-answercount="6"> 6 Answers <span style="display:none;" itemprop="answerCount">6</span> </h2> 
+          <div> 
+           <div id="tabs"> 
+            <a href="/questions/6659360/how-to-solve-javax-net-ssl-sslhandshakeexception-error?answertab=active#tab-top" data-nav-xhref="" title="Answers with the latest activity first" data-value="active" data-shortcut="A"> active</a> 
+            <a href="/questions/6659360/how-to-solve-javax-net-ssl-sslhandshakeexception-error?answertab=oldest#tab-top" data-nav-xhref="" title="Answers in the order they were provided" data-value="oldest" data-shortcut="O"> oldest</a> 
+            <a class="youarehere is-selected " href="/questions/6659360/how-to-solve-javax-net-ssl-sslhandshakeexception-error?answertab=votes#tab-top" data-nav-xhref="" title="Answers with the highest score first" data-value="votes" data-shortcut="V"> votes</a> 
+           </div> 
+          </div> 
+         </div> 
+        </div> 
+        <a name="6742204"></a> 
+        <div id="answer-6742204" class="answer accepted-answer" data-answerid="6742204" itemprop="acceptedAnswer" itemscope itemtype="http://schema.org/Answer"> 
+         <div class="post-layout"> 
+          <div class="votecell post-layout--left"> 
+           <div class="vote"> 
+            <input type="hidden" name="_id_" value="6742204"> 
+            <a class="vote-up-off" title="This answer is useful">up vote</a> 
+            <span itemprop="upvoteCount" class="vote-count-post ">121</span> 
+            <a class="vote-down-off" title="This answer is not useful">down vote</a> 
+            <span class="vote-accepted-on load-accepted-answer-date" title="loading when this answer was accepted...">accepted</span> 
+           </div> 
+          </div> 
+          <div class="answercell post-layout--right"> 
+           <div class="post-text" itemprop="text"> 
+            <p>First you need to obtain the public certificate from the server you're trying to connect to. That can be done in a variety of ways, such as contacting the server admin and asking for it, <a href="http://www.madboa.com/geek/openssl/#cert-retrieve" rel="noreferrer">using openssl to download it</a>, or, since this appears to be an HTTP server, connecting to it with any browser, viewing the page's security info, and saving a copy of the certificate. (Google should be able to tell you exactly what to do for your specific browser.)</p> 
+            <p>Now that you have the certificate saved in a file, you need to add it to your JVM's trust store. At <code>$JAVA_HOME/jre/lib/security/</code> for JREs or <code>$JAVA_HOME/lib/security</code> for JDKs, there's a file named <code>cacerts</code>, which comes with Java and contains the public certificates of the well-known Certifying Authorities. To import the new cert, run keytool as a user who has permission to write to cacerts:</p> 
+            <pre><code>keytool -import -file &lt;the cert file&gt; -alias &lt;some meaningful name&gt; -keystore &lt;path to cacerts file&gt;
+</code></pre> 
+            <p>It will most likely ask you for a password. The default password as shipped with java is <code>changeit</code>. Almost nobody changes it. After you complete these relatively simple steps, you'll be communicating securely and with assurance that you're talking to the right server and only the right server (as long as they don't lose their private key).</p> 
+           </div> 
+           <div class="grid mb0 fw-wrap ai-start jc-end gs8 gsy"> 
+            <div class="grid--cell mr16" style="flex: 1 1 100px;"> 
+             <div class="post-menu">
+              <a href="/a/6742204" title="short permalink to this answer" class="short-link" id="link-post-6742204">share</a>
+              <span class="lsep">|</span>
+              <a href="/posts/6742204/edit" class="suggest-edit-post" title="">improve this answer</a>
+             </div> 
+            </div> 
+            <div class="post-signature grid--cell fl0"> 
+             <div class="user-info user-hover"> 
+              <div class="user-action-time"> 
+               <a href="/posts/6742204/revisions" title="show all edits to this post">edited <span title="2015-02-12 18:47:01Z" class="relativetime">Feb 12 '15 at 18:47</span></a> 
+              </div> 
+              <div class="user-gravatar32"> 
+               <a href="/users/1554386/alastair-mccormack">
+                <div class="gravatar-wrapper-32">
+                 <img src="https://www.gravatar.com/avatar/bfe99a3a73b9284d16127418399762ff?s=32&amp;d=identicon&amp;r=PG" alt="" width="32" height="32">
+                </div></a> 
+              </div> 
+              <div class="user-details"> 
+               <a href="/users/1554386/alastair-mccormack">Alastair McCormack</a> 
+               <div class="-flair"> 
+                <span class="reputation-score" title="reputation score 14,854" dir="ltr">14.9k</span>
+                <span title="3 gold badges"><span class="badge1"></span><span class="badgecount">3</span></span>
+                <span title="38 silver badges"><span class="badge2"></span><span class="badgecount">38</span></span>
+                <span title="60 bronze badges"><span class="badge3"></span><span class="badgecount">60</span></span> 
+               </div> 
+              </div> 
+             </div> 
+            </div> 
+            <div class="post-signature grid--cell fl0"> 
+             <div class="user-info user-hover"> 
+              <div class="user-action-time">
+                answered 
+               <span title="2011-07-19 04:08:44Z" class="relativetime">Jul 19 '11 at 4:08</span> 
+              </div> 
+              <div class="user-gravatar32"> 
+               <a href="/users/839646/ryan-stewart">
+                <div class="gravatar-wrapper-32">
+                 <img src="https://www.gravatar.com/avatar/e4358a6dc7aea1d2b79045522c2dab52?s=32&amp;d=identicon&amp;r=PG" alt="" width="32" height="32">
+                </div></a> 
+              </div> 
+              <div class="user-details"> 
+               <a href="/users/839646/ryan-stewart">Ryan Stewart</a> 
+               <div class="-flair"> 
+                <span class="reputation-score" title="reputation score 96,535" dir="ltr">96.5k</span>
+                <span title="16 gold badges"><span class="badge1"></span><span class="badgecount">16</span></span>
+                <span title="147 silver badges"><span class="badge2"></span><span class="badgecount">147</span></span>
+                <span title="180 bronze badges"><span class="badge3"></span><span class="badgecount">180</span></span> 
+               </div> 
+              </div> 
+             </div> 
+            </div> 
+           </div> 
+          </div> 
+          <div class="post-layout--right"> 
+           <div id="comments-6742204" class="comments js-comments-container "> 
+            <ul class="comments-list js-comments-list" data-remaining-comments-count="5" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true"> 
+             <li id="comment-7990603" class="comment js-comment " data-comment-id="7990603"> 
+              <div class="js-comment-actions comment-actions"> 
+               <div class="comment-score"> 
+               </div> 
+              </div> 
+              <div class="comment-text js-comment-text-and-form"> 
+               <div class="comment-body" style="display: block;"> 
+                <span class="comment-copy">But it is not working for me.</span> –&nbsp;
+                <a href="/users/504130/selladurai" title="2,552 reputation" class="comment-user owner">selladurai</a> 
+                <span class="comment-date" dir="ltr"><span title="2011-07-19 05:14:27Z" class="relativetime-clean">Jul 19 '11 at 5:14</span></span> 
+               </div> 
+              </div> </li> 
+             <li id="comment-7990666" class="comment js-comment " data-comment-id="7990666"> 
+              <div class="js-comment-actions comment-actions"> 
+               <div class="comment-score"> 
+                <span title="number of 'useful comment' votes received" class="warm">9</span> 
+               </div> 
+              </div> 
+              <div class="comment-text js-comment-text-and-form"> 
+               <div class="comment-body" style="display: block;"> 
+                <span class="comment-copy">I'll need a little more detail than "not working". Try updating your question with what you've tried and some error output. Unfortunately, it's way past my bedtime, so maybe someone else will be able to answer your questions. This also is a very common situation. You can find lots of information on it online, including the <a href="http://download.oracle.com/javase/6/docs/technotes/tools/solaris/keytool.html" rel="nofollow noreferrer">keytool docs</a>.</span> –&nbsp;
+                <a href="/users/839646/ryan-stewart" title="96,535 reputation" class="comment-user">Ryan Stewart</a> 
+                <span class="comment-date" dir="ltr"><span title="2011-07-19 05:22:37Z" class="relativetime-clean">Jul 19 '11 at 5:22</span></span> 
+               </div> 
+              </div> </li> 
+             <li id="comment-7990704" class="comment js-comment " data-comment-id="7990704"> 
+              <div class="js-comment-actions comment-actions"> 
+               <div class="comment-score"> 
+               </div> 
+              </div> 
+              <div class="comment-text js-comment-text-and-form"> 
+               <div class="comment-body" style="display: block;"> 
+                <span class="comment-copy">Basically i need to include PayPal cert. I did your steps and cert also added in the appropriate location. then i run the app it say same error?</span> –&nbsp;
+                <a href="/users/504130/selladurai" title="2,552 reputation" class="comment-user owner">selladurai</a> 
+                <span class="comment-date" dir="ltr"><span title="2011-07-19 05:28:16Z" class="relativetime-clean">Jul 19 '11 at 5:28</span></span> 
+               </div> 
+              </div> </li> 
+             <li id="comment-7990745" class="comment js-comment " data-comment-id="7990745"> 
+              <div class="js-comment-actions comment-actions"> 
+               <div class="comment-score"> 
+               </div> 
+              </div> 
+              <div class="comment-text js-comment-text-and-form"> 
+               <div class="comment-body" style="display: block;"> 
+                <span class="comment-copy">Actually it works well no problem browser and I connected VPN to get inventory list at that time i make payment with PayPal, it say's SSL error but i use offline data or hot coded data means it works.</span> –&nbsp;
+                <a href="/users/504130/selladurai" title="2,552 reputation" class="comment-user owner">selladurai</a> 
+                <span class="comment-date" dir="ltr"><span title="2011-07-19 05:33:27Z" class="relativetime-clean">Jul 19 '11 at 5:33</span></span> 
+               </div> 
+              </div> </li> 
+             <li id="comment-7999085" class="comment js-comment " data-comment-id="7999085"> 
+              <div class="js-comment-actions comment-actions"> 
+               <div class="comment-score"> 
+                <span title="number of 'useful comment' votes received" class="cool">3</span> 
+               </div> 
+              </div> 
+              <div class="comment-text js-comment-text-and-form"> 
+               <div class="comment-body" style="display: block;"> 
+                <span class="comment-copy">@selladurai: You shouldn't need to import a cert for paypal. Unless your cacerts file has been corrupted or modified, it should contain all the trusted root certificates, and paypal's cert should be able to be traced back to one of those. You might try getting a copy of cacerts that you know is good and trying that one instead. If the problem persists, then you may not actually be connecting to paypal.</span> –&nbsp;
+                <a href="/users/839646/ryan-stewart" title="96,535 reputation" class="comment-user">Ryan Stewart</a> 
+                <span class="comment-date" dir="ltr"><span title="2011-07-19 14:28:37Z" class="relativetime-clean">Jul 19 '11 at 14:28</span></span> 
+                <span title="this comment was edited 1 time"> 
+                 <svg aria-hidden="true" class="svg-icon va-text-bottom o50 iconPencilSm" width="14" height="15" viewbox="0 0 14 15">
+                  <path d="M8.37 4.7L2 11.11V13h1.88l6.37-6.43zM12.23 3.83L11.1 2.71a.5.5 0 0 0-.7 0L9.2 3.86l1.88 1.84 1.14-1.16a.5.5 0 0 0 0-.71z" />
+                 </svg> </span> 
+               </div> 
+              </div> </li> 
+            </ul> 
+           </div> 
+           <div id="comments-link-6742204" data-rep="50" data-anon="true"> 
+            <a class="js-add-link comments-link  dno" title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”."></a>
+            <span class="js-link-separator dno">&nbsp;|&nbsp;</span> 
+            <a class="js-show-link comments-link " title="expand to show all comments on this post" href="#" onclick="">show <b>5</b> more comments</a> 
+           </div> 
+          </div> 
+         </div> 
+        </div> 
+        <div id="dfp-mlb" class="everyonelovesstackoverflow everyoneloves__mid-leaderboard"></div> 
+        <a name="6742111"></a> 
+        <div id="answer-6742111" class="answer" data-answerid="6742111" itemscope itemtype="http://schema.org/Answer"> 
+         <div class="post-layout"> 
+          <div class="votecell post-layout--left"> 
+           <div class="vote"> 
+            <input type="hidden" name="_id_" value="6742111"> 
+            <a class="vote-up-off" title="This answer is useful">up vote</a> 
+            <span itemprop="upvoteCount" class="vote-count-post ">13</span> 
+            <a class="vote-down-off" title="This answer is not useful">down vote</a> 
+           </div> 
+          </div> 
+          <div class="answercell post-layout--right"> 
+           <div class="post-text" itemprop="text"> 
+            <p>Now I solved this issue in this way,</p> 
+            <pre><code>import javax.net.ssl.HttpsURLConnection;
+import javax.net.ssl.SSLContext;
+import javax.net.ssl.TrustManager;
+import javax.net.ssl.X509TrustManager;
+import java.io.OutputStream; 
+
+// Create a trust manager that does not validate certificate chains like the default 
+
+TrustManager[] trustAllCerts = new TrustManager[]{
+        new X509TrustManager() {
+
+            public java.security.cert.X509Certificate[] getAcceptedIssuers()
+            {
+                return null;
+            }
+            public void checkClientTrusted(java.security.cert.X509Certificate[] certs, String authType)
+            {
+                //No need to implement.
+            }
+            public void checkServerTrusted(java.security.cert.X509Certificate[] certs, String authType)
+            {
+                //No need to implement.
+            }
+        }
+};
+
+// Install the all-trusting trust manager
+try 
+{
+    SSLContext sc = SSLContext.getInstance("SSL");
+    sc.init(null, trustAllCerts, new java.security.SecureRandom());
+    HttpsURLConnection.setDefaultSSLSocketFactory(sc.getSocketFactory());
+} 
+catch (Exception e) 
+{
+    System.out.println(e);
+}
+</code></pre> 
+            <p>Of course this solution should only be used in scenarios, where it is not possible to install the required certifcates using <code>keytool</code> e.g. local testing with temporary certifcates.</p> 
+           </div> 
+           <div class="grid mb0 fw-wrap ai-start jc-end gs8 gsy"> 
+            <div class="grid--cell mr16" style="flex: 1 1 100px;"> 
+             <div class="post-menu">
+              <a href="/a/6742111" title="short permalink to this answer" class="short-link" id="link-post-6742111">share</a>
+              <span class="lsep">|</span>
+              <a href="/posts/6742111/edit" class="suggest-edit-post" title="">improve this answer</a>
+             </div> 
+            </div> 
+            <div class="post-signature grid--cell fl0"> 
+             <div class="user-info user-hover"> 
+              <div class="user-action-time"> 
+               <a href="/posts/6742111/revisions" title="show all edits to this post">edited <span title="2017-10-24 08:20:38Z" class="relativetime">Oct 24 '17 at 8:20</span></a> 
+              </div> 
+              <div class="user-gravatar32"> 
+               <a href="/users/165071/alexander-farber">
+                <div class="gravatar-wrapper-32">
+                 <img src="https://i.stack.imgur.com/MB9bd.jpg?s=32&amp;g=1" alt="" width="32" height="32">
+                </div></a> 
+              </div> 
+              <div class="user-details"> 
+               <a href="/users/165071/alexander-farber">Alexander Farber</a> 
+               <div class="-flair"> 
+                <span class="reputation-score" title="reputation score " dir="ltr">8,081</span>
+                <span title="55 gold badges"><span class="badge1"></span><span class="badgecount">55</span></span>
+                <span title="187 silver badges"><span class="badge2"></span><span class="badgecount">187</span></span>
+                <span title="326 bronze badges"><span class="badge3"></span><span class="badgecount">326</span></span> 
+               </div> 
+              </div> 
+             </div> 
+            </div> 
+            <div class="post-signature owner grid--cell fl0"> 
+             <div class="user-info user-hover"> 
+              <div class="user-action-time">
+                answered 
+               <span title="2011-07-19 03:52:30Z" class="relativetime">Jul 19 '11 at 3:52</span> 
+              </div> 
+              <div class="user-gravatar32"> 
+               <a href="/users/504130/selladurai">
+                <div class="gravatar-wrapper-32">
+                 <img src="https://www.gravatar.com/avatar/dfa3978b043d6b5fe00dd5a5b8e22c8d?s=32&amp;d=identicon&amp;r=PG" alt="" width="32" height="32">
+                </div></a> 
+              </div> 
+              <div class="user-details"> 
+               <a href="/users/504130/selladurai">selladurai</a> 
+               <div class="-flair"> 
+                <span class="reputation-score" title="reputation score " dir="ltr">2,552</span>
+                <span title="9 gold badges"><span class="badge1"></span><span class="badgecount">9</span></span>
+                <span title="49 silver badges"><span class="badge2"></span><span class="badgecount">49</span></span>
+                <span title="85 bronze badges"><span class="badge3"></span><span class="badgecount">85</span></span> 
+               </div> 
+              </div> 
+             </div> 
+            </div> 
+           </div> 
+          </div> 
+          <div class="post-layout--right"> 
+           <div id="comments-6742111" class="comments js-comments-container "> 
+            <ul class="comments-list js-comments-list" data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true"> 
+             <li id="comment-7990012" class="comment js-comment " data-comment-id="7990012"> 
+              <div class="js-comment-actions comment-actions"> 
+               <div class="comment-score"> 
+                <span title="number of 'useful comment' votes received" class="supernova">32</span> 
+               </div> 
+              </div> 
+              <div class="comment-text js-comment-text-and-form"> 
+               <div class="comment-body" style="display: block;"> 
+                <span class="comment-copy">Wow, I would hesitate to call that a "fix". You've basically just turned off security. Yes, the data will still be encrypted, but you have no guarantee that you're talking to who you expect to be talking to. The correct solution is to obtain the public key of your target server and import it to the trust store of the JVM making the connection.</span> –&nbsp;
+                <a href="/users/839646/ryan-stewart" title="96,535 reputation" class="comment-user">Ryan Stewart</a> 
+                <span class="comment-date" dir="ltr"><span title="2011-07-19 03:58:39Z" class="relativetime-clean">Jul 19 '11 at 3:58</span></span> 
+               </div> 
+              </div> </li> 
+             <li id="comment-7990104" class="comment js-comment " data-comment-id="7990104"> 
+              <div class="js-comment-actions comment-actions"> 
+               <div class="comment-score"> 
+                <span title="number of 'useful comment' votes received" class="cool">1</span> 
+               </div> 
+              </div> 
+              <div class="comment-text js-comment-text-and-form"> 
+               <div class="comment-body" style="display: block;"> 
+                <span class="comment-copy">see my <a href="http://stackoverflow.com/questions/6659360/how-to-solve-javax-net-ssl-sslhandshakeexception-error/6742204#6742204">answer</a> for an appropriate solution</span> –&nbsp;
+                <a href="/users/839646/ryan-stewart" title="96,535 reputation" class="comment-user">Ryan Stewart</a> 
+                <span class="comment-date" dir="ltr"><span title="2011-07-19 04:09:13Z" class="relativetime-clean">Jul 19 '11 at 4:09</span></span> 
+               </div> 
+              </div> </li> 
+             <li id="comment-7990644" class="comment js-comment " data-comment-id="7990644"> 
+              <div class="js-comment-actions comment-actions"> 
+               <div class="comment-score"> 
+               </div> 
+              </div> 
+              <div class="comment-text js-comment-text-and-form"> 
+               <div class="comment-body" style="display: block;"> 
+                <span class="comment-copy">Example of what? My answer should have all the steps you need.</span> –&nbsp;
+                <a href="/users/839646/ryan-stewart" title="96,535 reputation" class="comment-user">Ryan Stewart</a> 
+                <span class="comment-date" dir="ltr"><span title="2011-07-19 05:18:47Z" class="relativetime-clean">Jul 19 '11 at 5:18</span></span> 
+               </div> 
+              </div> </li> 
+             <li id="comment-26722498" class="comment js-comment " data-comment-id="26722498"> 
+              <div class="js-comment-actions comment-actions"> 
+               <div class="comment-score"> 
+                <span title="number of 'useful comment' votes received" class="cool">1</span> 
+               </div> 
+              </div> 
+              <div class="comment-text js-comment-text-and-form"> 
+               <div class="comment-body" style="display: block;"> 
+                <span class="comment-copy"><a href="http://www.nakov.com/blog/2009/07/16/disable-certificate-validation-in-java-ssl-connections/" rel="nofollow noreferrer">nakov.com/blog/2009/07/16/…</a></span> –&nbsp;
+                <a href="/users/1947609/brune" title="950 reputation" class="comment-user">Brune</a> 
+                <span class="comment-date" dir="ltr"><span title="2013-08-14 09:54:47Z" class="relativetime-clean">Aug 14 '13 at 9:54</span></span> 
+               </div> 
+              </div> </li> 
+             <li id="comment-65354410" class="comment js-comment " data-comment-id="65354410"> 
+              <div class="js-comment-actions comment-actions"> 
+               <div class="comment-score"> 
+                <span title="number of 'useful comment' votes received" class="cool">2</span> 
+               </div> 
+              </div> 
+              <div class="comment-text js-comment-text-and-form"> 
+               <div class="comment-body" style="display: block;"> 
+                <span class="comment-copy">The code shown here looks helpful if you're writing a very simple test against a dev server, I would not rely on it for Production though.</span> –&nbsp;
+                <a href="/users/2985377/jason-d" title="4,683 reputation" class="comment-user">Jason D</a> 
+                <span class="comment-date" dir="ltr"><span title="2016-08-17 16:01:32Z" class="relativetime-clean">Aug 17 '16 at 16:01</span></span> 
+               </div> 
+              </div> </li> 
+            </ul> 
+           </div> 
+           <div id="comments-link-6742111" data-rep="50" data-anon="true"> 
+            <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”.">add a comment</a>
+            <span class="js-link-separator dno">&nbsp;|&nbsp;</span> 
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="#" onclick=""></a> 
+           </div> 
+          </div> 
+         </div> 
+        </div> 
+        <a name="22524546"></a> 
+        <div id="answer-22524546" class="answer" data-answerid="22524546" itemscope itemtype="http://schema.org/Answer"> 
+         <div class="post-layout"> 
+          <div class="votecell post-layout--left"> 
+           <div class="vote"> 
+            <input type="hidden" name="_id_" value="22524546"> 
+            <a class="vote-up-off" title="This answer is useful">up vote</a> 
+            <span itemprop="upvoteCount" class="vote-count-post ">9</span> 
+            <a class="vote-down-off" title="This answer is not useful">down vote</a> 
+           </div> 
+          </div> 
+          <div class="answercell post-layout--right"> 
+           <div class="post-text" itemprop="text"> 
+            <p>Whenever we are trying to connect to URL, </p> 
+            <p>if server at the other site is running on https protocol and is mandating that we should communicate via information provided in certificate then we have following option:</p> 
+            <p>1) ask for the certificate(download the certificate), import this certificate in trustore. Default trustore java uses can be found in \Java\jdk1.6.0_29\jre\lib\security\cacerts, then if we retry to connect to the URL connection would be accepted.</p> 
+            <p>2) In normal business cases, we might be connecting to internal URLS in organizations and we know that they are correct. In such cases, you trust that it is the correct URL, In such cases above, code can be used which will not mandate to store the certificate to connect to particular URL.</p> 
+            <p><strong>for the point no 2 we have to follow below steps :</strong></p> 
+            <p>1) write below method which sets HostnameVerifier for HttpsURLConnection which returns true for all cases meaning we are trusting the trustStore.</p> 
+            <pre><code>  // trusting all certificate 
+ public void doTrustToCertificates() throws Exception {
+        Security.addProvider(new com.sun.net.ssl.internal.ssl.Provider());
+        TrustManager[] trustAllCerts = new TrustManager[]{
+                new X509TrustManager() {
+                    public X509Certificate[] getAcceptedIssuers() {
+                        return null;
+                    }
+
+                    public void checkServerTrusted(X509Certificate[] certs, String authType) throws CertificateException {
+                        return;
+                    }
+
+                    public void checkClientTrusted(X509Certificate[] certs, String authType) throws CertificateException {
+                        return;
+                    }
+                }
+        };
+
+        SSLContext sc = SSLContext.getInstance("SSL");
+        sc.init(null, trustAllCerts, new SecureRandom());
+        HttpsURLConnection.setDefaultSSLSocketFactory(sc.getSocketFactory());
+        HostnameVerifier hv = new HostnameVerifier() {
+            public boolean verify(String urlHostName, SSLSession session) {
+                if (!urlHostName.equalsIgnoreCase(session.getPeerHost())) {
+                    System.out.println("Warning: URL host '" + urlHostName + "' is different to SSLSession host '" + session.getPeerHost() + "'.");
+                }
+                return true;
+            }
+        };
+        HttpsURLConnection.setDefaultHostnameVerifier(hv);
+    }
+</code></pre> 
+            <p>2) write below method, which calls doTrustToCertificates before trying to connect to URL</p> 
+            <pre><code>    // connecting to URL
+    public void connectToUrl(){
+     doTrustToCertificates();//  
+     URL url = new URL("https://www.example.com");
+     HttpURLConnection conn = (HttpURLConnection)url.openConnection(); 
+     System.out.println("ResponseCode ="+conn.getResponseCode());
+   }
+</code></pre> 
+            <p>This call will return response code = 200 means connection is successful.</p> 
+            <p>For more detail and sample example you can refer to <a href="http://blog.hexican.com/2010/12/sending-soap-messages-through-https-using-saaj/" rel="nofollow noreferrer">URL</a>.</p> 
+           </div> 
+           <div class="grid mb0 fw-wrap ai-start jc-end gs8 gsy"> 
+            <div class="grid--cell mr16" style="flex: 1 1 100px;"> 
+             <div class="post-menu">
+              <a href="/a/22524546" title="short permalink to this answer" class="short-link" id="link-post-22524546">share</a>
+              <span class="lsep">|</span>
+              <a href="/posts/22524546/edit" class="suggest-edit-post" title="">improve this answer</a>
+             </div> 
+            </div> 
+            <div class="post-signature grid--cell fl0"> 
+             <div class="user-info "> 
+              <div class="user-action-time"> 
+               <a href="/posts/22524546/revisions" title="show all edits to this post">edited <span title="2017-08-24 12:46:52Z" class="relativetime">Aug 24 '17 at 12:46</span></a> 
+              </div> 
+              <div class="user-gravatar32"> 
+               <a href="/users/184842/andreyakinshin">
+                <div class="gravatar-wrapper-32">
+                 <img src="https://www.gravatar.com/avatar/83a2082f82b4952191a66d0a028ba4cc?s=32&amp;d=identicon&amp;r=PG" alt="" width="32" height="32">
+                </div></a> 
+              </div> 
+              <div class="user-details"> 
+               <a href="/users/184842/andreyakinshin">AndreyAkinshin</a> 
+               <div class="-flair"> 
+                <span class="reputation-score" title="reputation score " dir="ltr">9,488</span>
+                <span title="23 gold badges"><span class="badge1"></span><span class="badgecount">23</span></span>
+                <span title="78 silver badges"><span class="badge2"></span><span class="badgecount">78</span></span>
+                <span title="132 bronze badges"><span class="badge3"></span><span class="badgecount">132</span></span> 
+               </div> 
+              </div> 
+             </div> 
+            </div> 
+            <div class="post-signature grid--cell fl0"> 
+             <div class="user-info user-hover"> 
+              <div class="user-action-time">
+                answered 
+               <span title="2014-03-20 05:54:55Z" class="relativetime">Mar 20 '14 at 5:54</span> 
+              </div> 
+              <div class="user-gravatar32"> 
+               <a href="/users/3060133/shirishkumar-bari">
+                <div class="gravatar-wrapper-32">
+                 <img src="https://i.stack.imgur.com/EbWde.jpg?s=32&amp;g=1" alt="" width="32" height="32">
+                </div></a> 
+              </div> 
+              <div class="user-details"> 
+               <a href="/users/3060133/shirishkumar-bari">Shirishkumar Bari</a> 
+               <div class="-flair"> 
+                <span class="reputation-score" title="reputation score " dir="ltr">1,738</span>
+                <span title="18 silver badges"><span class="badge2"></span><span class="badgecount">18</span></span>
+                <span title="26 bronze badges"><span class="badge3"></span><span class="badgecount">26</span></span> 
+               </div> 
+              </div> 
+             </div> 
+            </div> 
+           </div> 
+          </div> 
+          <div class="post-layout--right"> 
+           <div id="comments-22524546" class="comments js-comments-container "> 
+            <ul class="comments-list js-comments-list" data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true"> 
+             <li id="comment-71030592" class="comment js-comment " data-comment-id="71030592"> 
+              <div class="js-comment-actions comment-actions"> 
+               <div class="comment-score"> 
+                <span title="number of 'useful comment' votes received" class="cool">1</span> 
+               </div> 
+              </div> 
+              <div class="comment-text js-comment-text-and-form"> 
+               <div class="comment-body" style="display: block;"> 
+                <span class="comment-copy">Google Play store will reject this. They will see that you are ignoring X509Certificate during the APK scan.</span> –&nbsp;
+                <a href="/users/1134192/oliver-dixon" title="3,759 reputation" class="comment-user">Oliver Dixon</a> 
+                <span class="comment-date" dir="ltr"><span title="2017-01-29 19:35:13Z" class="relativetime-clean">Jan 29 '17 at 19:35</span></span> 
+               </div> 
+              </div> </li> 
+            </ul> 
+           </div> 
+           <div id="comments-link-22524546" data-rep="50" data-anon="true"> 
+            <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”.">add a comment</a>
+            <span class="js-link-separator dno">&nbsp;|&nbsp;</span> 
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="#" onclick=""></a> 
+           </div> 
+          </div> 
+         </div> 
+        </div> 
+        <a name="6697733"></a> 
+        <div id="answer-6697733" class="answer" data-answerid="6697733" itemscope itemtype="http://schema.org/Answer"> 
+         <div class="post-layout"> 
+          <div class="votecell post-layout--left"> 
+           <div class="vote"> 
+            <input type="hidden" name="_id_" value="6697733"> 
+            <a class="vote-up-off" title="This answer is useful">up vote</a> 
+            <span itemprop="upvoteCount" class="vote-count-post ">0</span> 
+            <a class="vote-down-off" title="This answer is not useful">down vote</a> 
+           </div> 
+          </div> 
+          <div class="answercell post-layout--right"> 
+           <div class="post-text" itemprop="text"> 
+            <p>I believe that you are trying to connect to a something using SSL but that something is providing a certificate which is not verified by root certification authorities such as verisign.. In essence by default secure connections can only be established if the person trying to connect knows the counterparties keys or some other verndor such as verisign can step in and say that the public key being provided is indeed right..</p> 
+            <p>ALL OS's trust a handful of certification authorities and smaller certificate issuers need to be certified by one of the large certifiers making a chain of certifiers if you get what I mean...</p> 
+            <p>Anyways coming back to the point.. I had a similiar problem when programming a java applet and a java server ( Hopefully some day I will write a complete blogpost about how I got all the security to work :) ) </p> 
+            <p>In essence what I had to do was to extract the public keys from the server and store it in a keystore inside my applet and when I connected to the server I used this key store to create a trust factory and that trust factory to create the ssl connection. There are alterante procedures as well such as adding the key to the JVM's trusted host and modifying the default trust store on start up.. </p> 
+            <p>I did this around two months back and dont have source code on me right now.. use google and you should be able to solve this problem. If you cant message me back and I can provide you the relevent source code for the project .. Dont know if this solves your problem since you havent provided the code which causes these exceptions. Furthermore I was working wiht applets thought I cant see why it wont work on Serverlets...</p> 
+            <p>P.S I cant get source code before the weekend since external SSH is disabled in my office :(</p> 
+           </div> 
+           <div class="grid mb0 fw-wrap ai-start jc-end gs8 gsy"> 
+            <div class="grid--cell mr16" style="flex: 1 1 100px;"> 
+             <div class="post-menu">
+              <a href="/a/6697733" title="short permalink to this answer" class="short-link" id="link-post-6697733">share</a>
+              <span class="lsep">|</span>
+              <a href="/posts/6697733/edit" class="suggest-edit-post" title="">improve this answer</a>
+             </div> 
+            </div> 
+            <div class="post-signature grid--cell fl0"> 
+             <div class="user-info "> 
+              <div class="user-action-time">
+                answered 
+               <span title="2011-07-14 17:53:36Z" class="relativetime">Jul 14 '11 at 17:53</span> 
+              </div> 
+              <div class="user-gravatar32"> 
+               <a href="/users/832000/osama-javed">
+                <div class="gravatar-wrapper-32">
+                 <img src="https://www.gravatar.com/avatar/e861c8ca78b4bf1b8d80b7d1c820b71b?s=32&amp;d=identicon&amp;r=PG" alt="" width="32" height="32">
+                </div></a> 
+              </div> 
+              <div class="user-details"> 
+               <a href="/users/832000/osama-javed">Osama Javed</a> 
+               <div class="-flair"> 
+                <span class="reputation-score" title="reputation score " dir="ltr">1,225</span>
+                <span title="1 gold badge"><span class="badge1"></span><span class="badgecount">1</span></span>
+                <span title="13 silver badges"><span class="badge2"></span><span class="badgecount">13</span></span>
+                <span title="20 bronze badges"><span class="badge3"></span><span class="badgecount">20</span></span> 
+               </div> 
+              </div> 
+             </div> 
+            </div> 
+           </div> 
+          </div> 
+          <div class="post-layout--right"> 
+           <div id="comments-6697733" class="comments js-comments-container "> 
+            <ul class="comments-list js-comments-list" data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true"> 
+             <li id="comment-7926501" class="comment js-comment " data-comment-id="7926501"> 
+              <div class="js-comment-actions comment-actions"> 
+               <div class="comment-score"> 
+                <span title="number of 'useful comment' votes received" class="cool">1</span> 
+               </div> 
+              </div> 
+              <div class="comment-text js-comment-text-and-form"> 
+               <div class="comment-body" style="display: block;"> 
+                <span class="comment-copy">P.S I found this java code online to extract and store the public keys of my server so keep googling or wait till sundayish</span> –&nbsp;
+                <a href="/users/832000/osama-javed" title="1,225 reputation" class="comment-user">Osama Javed</a> 
+                <span class="comment-date" dir="ltr"><span title="2011-07-14 17:54:31Z" class="relativetime-clean">Jul 14 '11 at 17:54</span></span> 
+               </div> 
+              </div> </li> 
+            </ul> 
+           </div> 
+           <div id="comments-link-6697733" data-rep="50" data-anon="true"> 
+            <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”.">add a comment</a>
+            <span class="js-link-separator dno">&nbsp;|&nbsp;</span> 
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="#" onclick=""></a> 
+           </div> 
+          </div> 
+         </div> 
+        </div> 
+        <a name="42824048"></a> 
+        <div id="answer-42824048" class="answer" data-answerid="42824048" itemscope itemtype="http://schema.org/Answer"> 
+         <div class="post-layout"> 
+          <div class="votecell post-layout--left"> 
+           <div class="vote"> 
+            <input type="hidden" name="_id_" value="42824048"> 
+            <a class="vote-up-off" title="This answer is useful">up vote</a> 
+            <span itemprop="upvoteCount" class="vote-count-post ">0</span> 
+            <a class="vote-down-off" title="This answer is not useful">down vote</a> 
+           </div> 
+          </div> 
+          <div class="answercell post-layout--right"> 
+           <div class="post-text" itemprop="text"> 
+            <p>SSLHandshakeException can be resolved 2 ways.</p> 
+            <ol> 
+             <li><p>Incorporating SSL </p> 
+              <ul> 
+               <li><p>Get the SSL (by asking the source system administrator, can also be downloaded by openssl command, or any browsers downloads the certificates)</p></li> 
+               <li><p>Add the certificate into truststore (cacerts) located at JRE/lib/security </p></li> 
+               <li><p>provide the truststore location in vm arguments as "-Djavax.net.ssl.trustStore="</p></li> 
+              </ul></li> 
+             <li><p>Ignoring SSL</p> <p>For this #2, please visit my other answer on another stackoverflow website: <a href="https://stackoverflow.com/questions/12060250/ignore-ssl-certificate-errors-with-java/42823950#42823950">How to ingore SSL verification </a><a href="https://stackoverflow.com/questions/12060250/ignore-ssl-certificate-errors-with-java/42823950#42823950">Ignore SSL Certificate Errors with Java</a></p></li> 
+            </ol> 
+           </div> 
+           <div class="grid mb0 fw-wrap ai-start jc-end gs8 gsy"> 
+            <div class="grid--cell mr16" style="flex: 1 1 100px;"> 
+             <div class="post-menu">
+              <a href="/a/42824048" title="short permalink to this answer" class="short-link" id="link-post-42824048">share</a>
+              <span class="lsep">|</span>
+              <a href="/posts/42824048/edit" class="suggest-edit-post" title="">improve this answer</a>
+             </div> 
+            </div> 
+            <div class="post-signature grid--cell fl0"> 
+             <div class="user-info user-hover"> 
+              <div class="user-action-time"> 
+               <a href="/posts/42824048/revisions" title="show all edits to this post">edited <span title="2017-05-23 12:18:20Z" class="relativetime">May 23 '17 at 12:18</span></a> 
+              </div> 
+              <div class="user-gravatar32"> 
+               <a href="/users/-1/community">
+                <div class="gravatar-wrapper-32">
+                 <img src="https://www.gravatar.com/avatar/a007be5a61f6aa8f3e85ae2fc18dd66e?s=32&amp;d=identicon&amp;r=PG" alt="" width="32" height="32">
+                </div></a> 
+              </div> 
+              <div class="user-details"> 
+               <a href="/users/-1/community">Community</a>
+               <span class="mod-flair" title="moderator">♦</span> 
+               <div class="-flair"> 
+                <span class="reputation-score" title="reputation score " dir="ltr">1</span>
+                <span title="1 silver badge"><span class="badge2"></span><span class="badgecount">1</span></span> 
+               </div> 
+              </div> 
+             </div> 
+            </div> 
+            <div class="post-signature grid--cell fl0"> 
+             <div class="user-info "> 
+              <div class="user-action-time">
+                answered 
+               <span title="2017-03-16 02:04:59Z" class="relativetime">Mar 16 '17 at 2:04</span> 
+              </div> 
+              <div class="user-gravatar32"> 
+               <a href="/users/5166818/amit-kaneria">
+                <div class="gravatar-wrapper-32">
+                 <img src="https://lh4.googleusercontent.com/-AMZbjHb932I/AAAAAAAAAAI/AAAAAAAADSE/lEjdGcVslBI/photo.jpg?sz=32" alt="" width="32" height="32">
+                </div></a> 
+              </div> 
+              <div class="user-details"> 
+               <a href="/users/5166818/amit-kaneria">Amit Kaneria</a> 
+               <div class="-flair"> 
+                <span class="reputation-score" title="reputation score " dir="ltr">2,015</span>
+                <span title="1 gold badge"><span class="badge1"></span><span class="badgecount">1</span></span>
+                <span title="16 silver badges"><span class="badge2"></span><span class="badgecount">16</span></span>
+                <span title="22 bronze badges"><span class="badge3"></span><span class="badgecount">22</span></span> 
+               </div> 
+              </div> 
+             </div> 
+            </div> 
+           </div> 
+          </div> 
+          <div class="post-layout--right"> 
+           <div id="comments-42824048" class="comments js-comments-container  dno"> 
+            <ul class="comments-list js-comments-list" data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true"> 
+            </ul> 
+           </div> 
+           <div id="comments-link-42824048" data-rep="50" data-anon="true"> 
+            <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”.">add a comment</a>
+            <span class="js-link-separator dno">&nbsp;|&nbsp;</span> 
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="#" onclick=""></a> 
+           </div> 
+          </div> 
+         </div> 
+        </div> 
+        <a name="33990200"></a> 
+        <div id="answer-33990200" class="answer downvoted-answer" data-answerid="33990200" itemscope itemtype="http://schema.org/Answer"> 
+         <div class="post-layout"> 
+          <div class="votecell post-layout--left"> 
+           <div class="vote"> 
+            <input type="hidden" name="_id_" value="33990200"> 
+            <a class="vote-up-off" title="This answer is useful">up vote</a> 
+            <span itemprop="upvoteCount" class="vote-count-post ">-5</span> 
+            <a class="vote-down-off" title="This answer is not useful">down vote</a> 
+           </div> 
+          </div> 
+          <div class="answercell post-layout--right"> 
+           <div class="post-text" itemprop="text"> 
+            <p>Now I solved this issue in this way,</p> 
+            <pre><code>import javax.net.ssl.HttpsURLConnection;
+import javax.net.ssl.SSLContext;
+import javax.net.ssl.TrustManager;
+import javax.net.ssl.X509TrustManager;
+import java.io.OutputStream;
+// Create a trust manager that does not validate certificate chains like the 
+default TrustManager[] trustAllCerts = new TrustManager[] {
+    new X509TrustManager() {
+        public java.security.cert.X509Certificate[] getAcceptedIssuers() {
+            return null;
+        }
+        public void checkClientTrusted(java.security.cert.X509Certificate[] certs, String authType) {
+            //No need to implement. 
+        }
+        public void checkServerTrusted(java.security.cert.X509Certificate[] certs, String authType) {
+            //No need to implement. 
+        }
+    }
+};
+// Install the all-trusting trust manager
+try {
+    SSLContext sc = SSLContext.getInstance("SSL");
+    sc.init(null, trustAllCerts, new java.security.SecureRandom());
+    HttpsURLConnection.setDefaultSSLSocketFactory(sc.getSocketFactory());
+} catch (Exception e) {
+    System.out.println(e);
+}
+</code></pre> 
+           </div> 
+           <div class="grid mb0 fw-wrap ai-start jc-end gs8 gsy"> 
+            <div class="grid--cell mr16" style="flex: 1 1 100px;"> 
+             <div class="post-menu">
+              <a href="/a/33990200" title="short permalink to this answer" class="short-link" id="link-post-33990200">share</a>
+              <span class="lsep">|</span>
+              <a href="/posts/33990200/edit" class="suggest-edit-post" title="">improve this answer</a>
+             </div> 
+            </div> 
+            <div class="post-signature grid--cell fl0"> 
+             <div class="user-info user-hover"> 
+              <div class="user-action-time"> 
+               <a href="/posts/33990200/revisions" title="show all edits to this post">edited <span title="2015-11-30 07:29:19Z" class="relativetime">Nov 30 '15 at 7:29</span></a> 
+              </div> 
+              <div class="user-gravatar32"> 
+               <a href="/users/504130/selladurai">
+                <div class="gravatar-wrapper-32">
+                 <img src="https://www.gravatar.com/avatar/dfa3978b043d6b5fe00dd5a5b8e22c8d?s=32&amp;d=identicon&amp;r=PG" alt="" width="32" height="32">
+                </div></a> 
+              </div> 
+              <div class="user-details"> 
+               <a href="/users/504130/selladurai">selladurai</a> 
+               <div class="-flair"> 
+                <span class="reputation-score" title="reputation score " dir="ltr">2,552</span>
+                <span title="9 gold badges"><span class="badge1"></span><span class="badgecount">9</span></span>
+                <span title="49 silver badges"><span class="badge2"></span><span class="badgecount">49</span></span>
+                <span title="85 bronze badges"><span class="badge3"></span><span class="badgecount">85</span></span> 
+               </div> 
+              </div> 
+             </div> 
+            </div> 
+            <div class="post-signature grid--cell fl0"> 
+             <div class="user-info "> 
+              <div class="user-action-time">
+                answered 
+               <span title="2015-11-30 01:26:28Z" class="relativetime">Nov 30 '15 at 1:26</span> 
+              </div> 
+              <div class="user-gravatar32"> 
+               <a href="/users/5619355/evelyn-condes">
+                <div class="gravatar-wrapper-32">
+                 <img src="https://www.gravatar.com/avatar/cdc3fcbbe67f2d2f463e8a5150a8f851?s=32&amp;d=identicon&amp;r=PG" alt="" width="32" height="32">
+                </div></a> 
+              </div> 
+              <div class="user-details"> 
+               <a href="/users/5619355/evelyn-condes">Evelyn Condes</a> 
+               <div class="-flair"> 
+                <span class="reputation-score" title="reputation score " dir="ltr">13</span>
+                <span title="1 bronze badge"><span class="badge3"></span><span class="badgecount">1</span></span> 
+               </div> 
+              </div> 
+             </div> 
+            </div> 
+           </div> 
+          </div> 
+          <div class="post-layout--right"> 
+           <div id="comments-33990200" class="comments js-comments-container "> 
+            <ul class="comments-list js-comments-list" data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true"> 
+             <li id="comment-65176475" class="comment js-comment " data-comment-id="65176475"> 
+              <div class="js-comment-actions comment-actions"> 
+               <div class="comment-score"> 
+                <span title="number of 'useful comment' votes received" class="cool">2</span> 
+               </div> 
+              </div> 
+              <div class="comment-text js-comment-text-and-form"> 
+               <div class="comment-body" style="display: block;"> 
+                <span class="comment-copy">'No need to implement' is <b>completely and utterly incorrect.</b> You have just made your SSL connection insecure. Don't do this.</span> –&nbsp;
+                <a href="/users/207421/user207421" title="258,791 reputation" class="comment-user">user207421</a> 
+                <span class="comment-date" dir="ltr"><span title="2016-08-12 03:09:18Z" class="relativetime-clean">Aug 12 '16 at 3:09</span></span> 
+                <span title="this comment was edited 1 time"> 
+                 <svg aria-hidden="true" class="svg-icon va-text-bottom o50 iconPencilSm" width="14" height="15" viewbox="0 0 14 15">
+                  <path d="M8.37 4.7L2 11.11V13h1.88l6.37-6.43zM12.23 3.83L11.1 2.71a.5.5 0 0 0-.7 0L9.2 3.86l1.88 1.84 1.14-1.16a.5.5 0 0 0 0-.71z" />
+                 </svg> </span> 
+               </div> 
+              </div> </li> 
+            </ul> 
+           </div> 
+           <div id="comments-link-33990200" data-rep="50" data-anon="true"> 
+            <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”.">add a comment</a>
+            <span class="js-link-separator dno">&nbsp;|&nbsp;</span> 
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="#" onclick=""></a> 
+           </div> 
+          </div> 
+         </div> 
+        </div> 
+        <div class="question-status"> 
+         <h2> <b>protected</b> by <a href="/users/-1/community">Community</a><span class="mod-flair" title="moderator">♦</span> <span dir="ltr"><span title="2015-11-30 02:33:13Z" class="relativetime">Nov 30 '15 at 2:33</span></span> </h2> 
+         <p> Thank you for your interest in this question. Because it has attracted low-quality or spam answers that had to be removed, posting an answer now requires 10 <a href="/help/whats-reputation">reputation</a> on this site (the <a href="/help/privileges/new-user">association bonus does not count</a>). <br><br> Would you like to answer one of these <a href="/unanswered?fromProtectedNotice=true">unanswered questions</a> instead?</p> 
+        </div> 
+        <h2 class="bottom-notice" data-loc="1"> Not the answer you're looking for? Browse other questions tagged <a href="/questions/tagged/java" class="post-tag" title="show questions tagged 'java'" rel="tag">java</a> <a href="/questions/tagged/servlets" class="post-tag" title="show questions tagged 'servlets'" rel="tag">servlets</a> <a href="/questions/tagged/paypal" class="post-tag" title="show questions tagged 'paypal'" rel="tag">paypal</a> <a href="/questions/tagged/vpn" class="post-tag" title="show questions tagged 'vpn'" rel="tag">vpn</a> <a href="/questions/tagged/sslhandshakeexception" class="post-tag" title="show questions tagged 'sslhandshakeexception'" rel="tag">sslhandshakeexception</a> or <a href="/questions/ask">ask your own question</a>. </h2> 
+       </div> 
+      </div> 
+      <div id="sidebar" class="show-votes" role="complementary" aria-label="sidebar"> 
+       <div class="module question-stats"> 
+        <table id="qinfo"> 
+         <tbody>
+          <tr> 
+           <td> <p class="label-key">asked</p> </td> 
+           <td style="padding-left: 10px"> <p class="label-key" title="2011-07-12 04:03:09Z"><b>7 years, 5 months ago</b></p> </td> 
+          </tr> 
+          <tr> 
+           <td> <p class="label-key">viewed</p> </td> 
+           <td style="padding-left: 10px"> <p class="label-key"> <b>370,209 times</b> </p> </td> 
+          </tr> 
+          <tr> 
+           <td> <p class="label-key">active</p> </td> 
+           <td style="padding-left: 10px"> <p class="label-key"><b><a href="?lastactivity" class="lastactivity-link" title="2018-02-01 07:36:07Z">10 months ago</a></b></p> </td> 
+          </tr> 
+         </tbody>
+        </table> 
+       </div> 
+       <div class="module community-bulletin" data-tracker="cb=1"> 
+        <div class="related"> 
+         <div class="bulletin-title">
+           Blog 
+         </div> 
+         <hr> 
+         <div class="spacer"> 
+          <div class="bulletin-item-type"> 
+           <a href="https://stackoverflow.blog/2018/12/04/welcome-wagon-community-and-comments-on-stack-overflow/" class="question-hyperlink" data-ga="[&quot;community bulletin board&quot;,&quot;Blog&quot;,&quot;https://stackoverflow.blog/2018/12/04/welcome-wagon-community-and-comments-on-stack-overflow/&quot;,null,null]"> 
+            <div class="favicon favicon-stackexchangemeta" title="Meta Stack Exchange"></div> </a> 
+          </div> 
+          <div class="bulletin-item-content"> 
+           <a href="https://stackoverflow.blog/2018/12/04/welcome-wagon-community-and-comments-on-stack-overflow/" class="question-hyperlink" data-ga="[&quot;community bulletin board&quot;,&quot;Blog&quot;,&quot;https://stackoverflow.blog/2018/12/04/welcome-wagon-community-and-comments-on-stack-overflow/&quot;,null,null]">Welcome Wagon: Community and Comments on Stack Overflow</a> 
+          </div> 
+          <br class="cbt"> 
+         </div> 
+        </div> 
+       </div> 
+       <div id="dfp-tsb" class="everyonelovesstackoverflow everyoneloves__top-sidebar"></div> 
+       <div id="hireme"></div> 
+       <script>;try{(function(a){function b(a){return'string'==typeof a?document.getElementById(a):a}function c(a){return a=b(a),!!a&&'none'===getComputedStyle(a).display}function d(a){return!c(a)}function e(a){return!!a}function f(a){return /^\s*$/.test(b(a).innerHTML)}function g(a){var b=a.style;b.height=b.maxHeight=b.minHeight='auto',b.display='none',[].forEach.call(a.children,g)}function h(a,b){var c;return function(){return a&&(c=a.call(b||this,arguments),a=null),c}}function i(a){var b=document.createElement('script');b.src=a,document.body.appendChild(b)}function j(a){return k([],a)}function k(a,b){return a.push=function(a){return b(),delete this.push,this.push(a)},a}function l(){try{return!new Function('return async()=>{};')}catch(a){return!0}}function m(){return'undefined'!=typeof googletag&&!!googletag.apiReady}function n(){m()||(googletag={cmd:j(A)})}function o(){var a=document.createElement('div');a.className='adsbox',a.id='clc-abd',a.style.position='absolute',a.style.pointerEvents='none',a.innerHTML='&nbsp;',document.body.appendChild(a)}function p(a){var b=a.serviceName,c=a.slot,d=a.lineItemId;try{var e=c.getSlotElementId(),f=[];e||f.push('id=0');var h=document.getElementById(e);if(!e||h?h.hasAttribute('data-clc-stalled')&&f.push('st=1'):f.push('el=0'),0!==f.length)return void B(f.join('&'));-1===x.dh.indexOf(d)?h.setAttribute('data-clc-prefilled','true'):g(h),h.setAttribute('data-clc-ready','true')}catch(a){var i=document.querySelector('#dfp-tsb, #dfp-isb, #clc-tsb');i&&i.setAttribute('data-clc-ready','true'),B('e=1')}}function q(){return Object.keys(F.ids)}function r(a){var b=F.ids[a],c=F.slots[b];'function'==typeof c&&(c=c(a));return{path:'/'+C+'/'+E+'/'+b+'/'+D,sizes:c,zone:b}}function s(a){return!(clc.collapse&&void 0!==clc.collapse[a])||!!clc.collapse[a]}function t(a,b){'dfp-isb'===a&&b.setTargeting('Sidebar',['Inline']),'dfp-tsb'===a&&b.setTargeting('Sidebar',['Right']);var c=r(a),d=c.path,e=c.sizes,f=c.zone,g=googletag.defineSlot(d,e,a);s(f)&&g.setCollapseEmptyDiv(!0,!0),g.addService(b),!1}function u(b){var c=a.dfp&&a.dfp.targeting||{};Object.keys(c).forEach(function(a){b.setTargeting(a,c[a])})}function v(a){var g=a.map(b).filter(e);return{eligible:g.filter(f).filter(d).map(function(a){return a.id}),ineligible:g.filter(c)}}function w(b){if(void 0===b&&(b=q()),!m())return n(),void googletag.cmd.push(function(){return w(b)});var c=v(b),d=c.eligible,e=c.ineligible;if(e.forEach(g),0!==d.length){o(),googletag.destroySlots();var f=googletag.pubads();f.enableSingleRequest(),a.sreEvent||(f.addEventListener('slotRenderEnded',p),a.sreEvent=!0),u(f),d.forEach(function(a){return t(a,f)}),googletag.enableServices(),d.forEach(function(a){googletag.display(a)})}}var x=function(a){for(var b=[],c=1;c<arguments.length;c++)b[c-1]=arguments[c];for(var d,e=0,f=b;e<f.length;e++)for(var g in d=f[e],d)a[g]=d[g];return a}({"lib":"https://cdn.sstatic.net/clc/clc.min.js?v=04d772c81312","style":"https://cdn.sstatic.net/clc/styles/clc.min.css?v=1db48f495ba1","u":"https://clc.stackoverflow.com/markup.js","wa":true,"kt":2000,"tto":true,"h":"clc.stackoverflow.com","allowed":"^(((talent\\.)?stackoverflow)|(blog\\.codinghorror)|(serverfault|askubuntu)|([^\\.]+\\.stackexchange))\\.com$","wv":true,"al":false,"dh":[4385506061,4386578282,4386579572]},a.options||{}),y=h(function(){var a=x.lib;l()&&(a=a.replace(/(\.min)?\.js(\?v=[0-9a-fA-F]+)?$/,'.ie$1.js$2')),i(a)}),z=a.cmd||[];Array.isArray(z)&&(0<z.length?y():k(z,y));var A=h(function(){i('https://www.googletagservices.com/tag/js/gpt.js')}),B=function(a){new Image().src='https://'+x.h+'/stalled.gif?'+a},C='248424177',D=/^\/tags\//.test(location.pathname)||/^\/questions\/tagged\//.test(location.pathname)?'tag-pages':'question-pages',E=location.hostname;var F={slots:{lb:[[728,90]],mlb:[[728,90]],sb:function(a){return'dfp-tsb'===a?[[300,250],[300,600]]:[[300,250]]},"tag-sponsorship":[[730,135]],"mobile-below-question":[[320,50],[300,250]]},ids:{"dfp-tlb":'lb',"dfp-mlb":'mlb',"dfp-tsb":'sb',"dfp-isb":'sb',"dfp-tag":'tag-sponsorship',"dfp-m-aq":'mobile-below-question',"clc-tlb":'lb',"clc-mlb":'mlb',"clc-tsb":'sb'}};(function(){var b=x.al;b&&z.push(function(){return a.load()})})(),n(),a.dfp={load:w},a.options=x,a.cmd=z})(this.clc=this.clc||{})}catch(a){window.console.error(a)}</script> 
+       <script>
+                var clc = clc || {};
+                clc.collapse = { sb: !0,'tag-sponsorship':!0,lb:!1,mlb:!1,'mobile-below-question':!0};
+                clc.cmd = clc.cmd || [];
+                clc.cmd.push(function () { window.clc_request='ApEAbGRJXdYIAAAAACCdZQACAAAAAgAAAAAwAAAAfGphdmF8c2VydmxldHN8cGF5cGFsfHZwbnxzc2xoYW5kc2hha2VleGNlcHRpb258AAWHWuyfP2n7oeg'; clc.load(); });
+                                clc.dfp = clc.dfp || {};
+                clc.dfp.targeting = {Registered:['false'],'so-tag':['java','servlets','paypal','vpn','sslhandshakeexception']};
+                
+                var googletag = googletag || {};
+                googletag.cmd = googletag.cmd || [];
+                googletag.cmd.push(function () { clc.dfp.load(); });
+            </script> 
+       <div class="module sidebar-linked"> 
+        <h4 id="h-linked">Linked</h4> 
+        <div class="linked" data-tracker="lq=1"> 
+         <div class="spacer"> 
+          <a href="/q/46387353" title="Vote score (upvotes - downvotes)"> 
+           <div class="answer-votes  default">
+            0
+           </div> </a> 
+          <a href="/questions/46387353/sslhandshakeexception-while-posting-to-https-site?noredirect=1" class="question-hyperlink">SSLHandshakeException while posting to https site</a> 
+         </div> 
+         <div class="spacer"> 
+          <a href="/q/49276019" title="Vote score (upvotes - downvotes)"> 
+           <div class="answer-votes  default">
+            0
+           </div> </a> 
+          <a href="/questions/49276019/call-java-servlet-from-other-project?noredirect=1" class="question-hyperlink">Call java servlet from other project</a> 
+         </div> 
+         <div class="spacer"> 
+          <a href="/q/12060250" title="Vote score (upvotes - downvotes)"> 
+           <div class="answer-votes answered-accepted default">
+            8
+           </div> </a> 
+          <a href="/questions/12060250/ignore-ssl-certificate-errors-with-java?noredirect=1" class="question-hyperlink">Ignore SSL Certificate Errors with Java</a> 
+         </div> 
+         <div class="spacer"> 
+          <a href="/q/37724901" title="Vote score (upvotes - downvotes)"> 
+           <div class="answer-votes answered-accepted default">
+            3
+           </div> </a> 
+          <a href="/questions/37724901/disable-sslhandshakeexception-for-a-single-connection?noredirect=1" class="question-hyperlink">Disable SSLHandshakeException for a single connection</a> 
+         </div> 
+         <div class="spacer"> 
+          <a href="/q/17348821" title="Vote score (upvotes - downvotes)"> 
+           <div class="answer-votes  default">
+            1
+           </div> </a> 
+          <a href="/questions/17348821/ssl-connection-to-ldap-via-java?noredirect=1" class="question-hyperlink">SSL Connection to LDAP via Java</a> 
+         </div> 
+         <div class="spacer"> 
+          <a href="/q/25553813" title="Vote score (upvotes - downvotes)"> 
+           <div class="answer-votes answered-accepted default">
+            3
+           </div> </a> 
+          <a href="/questions/25553813/ssl-error-from-java-client-but-works-form-poster-in-firefox?noredirect=1" class="question-hyperlink">SSL error from Java client but works form POSTER in Firefox</a> 
+         </div> 
+         <div class="spacer"> 
+          <a href="/q/15873114" title="Vote score (upvotes - downvotes)"> 
+           <div class="answer-votes answered-accepted default">
+            1
+           </div> </a> 
+          <a href="/questions/15873114/how-to-configure-ldaps-authentication-on-tomcat-7?noredirect=1" class="question-hyperlink">How to configure LDAPS authentication on Tomcat 7</a> 
+         </div> 
+         <div class="spacer"> 
+          <a href="/q/31181816" title="Vote score (upvotes - downvotes)"> 
+           <div class="answer-votes  default">
+            9
+           </div> </a> 
+          <a href="/questions/31181816/trusting-an-expired-self-signed-certificate-while-calling-a-webservice?noredirect=1" class="question-hyperlink">Trusting an expired self-signed certificate while calling a webservice</a> 
+         </div> 
+         <div class="spacer"> 
+          <a href="/q/39404234" title="Vote score (upvotes - downvotes)"> 
+           <div class="answer-votes  default">
+            1
+           </div> </a> 
+          <a href="/questions/39404234/cxf-ssl-configuration-for-consuming-soap-webservice?noredirect=1" class="question-hyperlink">CXF SSL configuration for consuming SOAP webservice</a> 
+         </div> 
+         <div class="spacer"> 
+          <a href="/q/23180644" title="Vote score (upvotes - downvotes)"> 
+           <div class="answer-votes  default">
+            0
+           </div> </a> 
+          <a href="/questions/23180644/error-when-trying-to-connect-through-ssl-unable-to-find-valid-certification-pat?noredirect=1" class="question-hyperlink">Error when trying to connect through SSL. Unable to find valid certification path to requested target</a> 
+         </div> 
+         <div class="spacer more"> 
+          <a href="/questions/linked/6659360">see more linked questions…</a> 
+         </div> 
+        </div> 
+       </div> 
+       <div class="module sidebar-related"> 
+        <h4 id="h-related">Related</h4> 
+        <div class="related js-gps-related-questions" data-tracker="rq=1"> 
+         <div class="spacer">
+          <a href="/q/9619030" title="Vote score (upvotes - downvotes)">
+           <div class="answer-votes answered-accepted large">
+            316
+           </div></a>
+          <a href="/questions/9619030/resolving-javax-net-ssl-sslhandshakeexception-sun-security-validator-validatore" class="question-hyperlink">Resolving javax.net.ssl.SSLHandshakeException: sun.security.validator.ValidatorException: PKIX path building failed Error?</a>
+         </div>
+         <div class="spacer">
+          <a href="/q/11617210" title="Vote score (upvotes - downvotes)">
+           <div class="answer-votes large">
+            111
+           </div></a>
+          <a href="/questions/11617210/how-to-properly-import-a-selfsigned-certificate-into-java-keystore-that-is-avail" class="question-hyperlink">How to properly import a selfsigned certificate into Java keystore that is available to all Java applications by default?</a>
+         </div>
+         <div class="spacer">
+          <a href="/q/15196150" title="Vote score (upvotes - downvotes)">
+           <div class="answer-votes default">
+            0
+           </div></a>
+          <a href="/questions/15196150/soap-webservice-is-giving-the-below-error" class="question-hyperlink">SOAP Webservice is giving the below error</a>
+         </div>
+         <div class="spacer">
+          <a href="/q/26479463" title="Vote score (upvotes - downvotes)">
+           <div class="answer-votes answered-accepted default">
+            0
+           </div></a>
+          <a href="/questions/26479463/disable-ssl-connection-in-the-given-java-code" class="question-hyperlink">Disable SSL connection in the given java code</a>
+         </div>
+         <div class="spacer">
+          <a href="/q/35809843" title="Vote score (upvotes - downvotes)">
+           <div class="answer-votes default">
+            0
+           </div></a>
+          <a href="/questions/35809843/service-account-throws-sslhandshakeexception" class="question-hyperlink">Service account Throws - SSLHandshakeException</a>
+         </div>
+         <div class="spacer">
+          <a href="/q/38349494" title="Vote score (upvotes - downvotes)">
+           <div class="answer-votes default">
+            0
+           </div></a>
+          <a href="/questions/38349494/javax-net-ssl-sslhandshakeexception-sun-security-validator-validatorexception" class="question-hyperlink">javax.net.ssl.SSLHandshakeException: sun.security.validator.ValidatorException?</a>
+         </div>
+         <div class="spacer">
+          <a href="/q/39479953" title="Vote score (upvotes - downvotes)">
+           <div class="answer-votes default">
+            0
+           </div></a>
+          <a href="/questions/39479953/javax-net-ssl-sslhandshakeexception-for-a-http-get-using-jax-rs" class="question-hyperlink">javax.net.ssl.SSLHandshakeException: for a http GET using JAX-RS</a>
+         </div>
+         <div class="spacer">
+          <a href="/q/49568132" title="Vote score (upvotes - downvotes)">
+           <div class="answer-votes default">
+            0
+           </div></a>
+          <a href="/questions/49568132/sun-security-provider-certpath-suncertpathbuilderexception" class="question-hyperlink">sun.security.provider.certpath.SunCertPathBuilderException:</a>
+         </div>
+         <div class="spacer">
+          <a href="/q/50045938" title="Vote score (upvotes - downvotes)">
+           <div class="answer-votes default">
+            0
+           </div></a>
+          <a href="/questions/50045938/setsslsocketfactory-is-not-working-anymore" class="question-hyperlink">setSSLSocketFactory is not working anymore</a>
+         </div> 
+        </div> 
+       </div> 
+       <div id="hot-network-questions" class="module tex2jax_ignore"> 
+        <h4> <a href="https://stackexchange.com/questions?tab=hot" class="js-gps-track s-link s-link__inherit" data-gps-track="posts_hot_network.click({ item_type:1, location:11 })"> Hot Network Questions </a> </h4> 
+        <ul> 
+         <li> 
+          <div class="favicon favicon-crypto" title="Cryptography Stack Exchange"></div><a href="https://crypto.stackexchange.com/questions/64669/what-are-the-curly-brackets-in-this-cryptographic-hash-function-definition" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:281 }); posts_hot_network.click({ item_type:2, location:11 })"> What are the curly brackets in this cryptographic hash function definition? </a> </li> 
+         <li> 
+          <div class="favicon favicon-academia" title="Academia Stack Exchange"></div><a href="https://academia.stackexchange.com/questions/120926/as-a-course-lecturer-should-i-excuse-late-assignment-submissions-if-i-wrote-the" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:415 }); posts_hot_network.click({ item_type:2, location:11 })"> As a course lecturer, should I excuse late assignment submissions if I wrote the assignment deadline slightly wrong? </a> </li> 
+         <li> 
+          <div class="favicon favicon-workplace" title="The Workplace Stack Exchange"></div><a href="https://workplace.stackexchange.com/questions/124096/should-i-tell-my-coworkers-i-was-asked-to-leave" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:423 }); posts_hot_network.click({ item_type:2, location:11 })"> Should I tell my coworkers I was asked to leave? </a> </li> 
+         <li> 
+          <div class="favicon favicon-electronics" title="Electrical Engineering Stack Exchange"></div><a href="https://electronics.stackexchange.com/questions/411149/make-energy-out-of-a-capacitor-in-the-sea" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:135 }); posts_hot_network.click({ item_type:2, location:11 })"> Make energy out of a capacitor in the sea </a> </li> 
+         <li> 
+          <div class="favicon favicon-codegolf" title="Programming Puzzles &amp; Code Golf Stack Exchange"></div><a href="https://codegolf.stackexchange.com/questions/177118/number-that-can-eat-itself" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:200 }); posts_hot_network.click({ item_type:2, location:11 })"> Number that can eat itself </a> </li> 
+         <li class="dno js-hidden"> 
+          <div class="favicon favicon-worldbuilding" title="Worldbuilding Stack Exchange"></div><a href="https://worldbuilding.stackexchange.com/questions/132195/is-intraspecies-genetic-incompatibility-possible" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:579 }); posts_hot_network.click({ item_type:2, location:11 })"> Is intraspecies genetic incompatibility possible? </a> </li> 
+         <li class="dno js-hidden"> 
+          <div class="favicon favicon-codegolf" title="Programming Puzzles &amp; Code Golf Stack Exchange"></div><a href="https://codegolf.stackexchange.com/questions/177021/as-we-travel-the-universe" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:200 }); posts_hot_network.click({ item_type:2, location:11 })"> "As we travel the universe..." </a> </li> 
+         <li class="dno js-hidden"> 
+          <div class="favicon favicon-tex" title="TeX - LaTeX Stack Exchange"></div><a href="https://tex.stackexchange.com/questions/463817/substitute-for-eqnarray" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:85 }); posts_hot_network.click({ item_type:2, location:11 })"> Substitute for eqnarray? </a> </li> 
+         <li class="dno js-hidden"> 
+          <div class="favicon favicon-softwareengineering" title="Software Engineering Stack Exchange"></div><a href="https://softwareengineering.stackexchange.com/questions/382486/arent-the-guidelines-of-async-await-usage-in-c-contradicting-the-concepts-of-g" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:131 }); posts_hot_network.click({ item_type:2, location:11 })"> Aren't the guidelines of async/await usage in C# contradicting the concepts of good architecture and abstraction layering? </a> </li> 
+         <li class="dno js-hidden"> 
+          <div class="favicon favicon-music" title="Music: Practice &amp; Theory Stack Exchange"></div><a href="https://music.stackexchange.com/questions/77253/where-does-the-great-audio-quality-of-tracks-released-on-youtube-come-from" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:240 }); posts_hot_network.click({ item_type:2, location:11 })"> Where does the great audio quality of tracks released on YouTube come from? </a> </li> 
+         <li class="dno js-hidden"> 
+          <div class="favicon favicon-pets" title="Pets Stack Exchange"></div><a href="https://pets.stackexchange.com/questions/22040/can-someone-help-me-with-my-cats-behavioror-maybe-mine" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:518 }); posts_hot_network.click({ item_type:2, location:11 })"> Can someone help me with my cat's behavior?(or maybe mine) </a> </li> 
+         <li class="dno js-hidden"> 
+          <div class="favicon favicon-rpg" title="Role-playing Games Stack Exchange"></div><a href="https://rpg.stackexchange.com/questions/136964/can-i-drag-a-grappled-creature-and-release-it-after-moving-half-of-my-speed-the" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:122 }); posts_hot_network.click({ item_type:2, location:11 })"> Can I drag a grappled creature and release it after moving half of my speed, then move the remainder of my speed? </a> </li> 
+         <li class="dno js-hidden"> 
+          <div class="favicon favicon-rpg" title="Role-playing Games Stack Exchange"></div><a href="https://rpg.stackexchange.com/questions/136936/how-do-i-tweak-this-crouching-rule-to-balance-it" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:122 }); posts_hot_network.click({ item_type:2, location:11 })"> How do I tweak this crouching rule to balance it? </a> </li> 
+         <li class="dno js-hidden"> 
+          <div class="favicon favicon-academia" title="Academia Stack Exchange"></div><a href="https://academia.stackexchange.com/questions/121262/outsourcing-trivial-authorless-work" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:415 }); posts_hot_network.click({ item_type:2, location:11 })"> Outsourcing trivial authorless work </a> </li> 
+         <li class="dno js-hidden"> 
+          <div class="favicon favicon-worldbuilding" title="Worldbuilding Stack Exchange"></div><a href="https://worldbuilding.stackexchange.com/questions/131941/eternal-space-battle-around-a-planet-but-why" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:579 }); posts_hot_network.click({ item_type:2, location:11 })"> Eternal space battle around a planet. But why? </a> </li> 
+         <li class="dno js-hidden"> 
+          <div class="favicon favicon-scifi" title="Science Fiction &amp; Fantasy Stack Exchange"></div><a href="https://scifi.stackexchange.com/questions/200018/why-did-j-k-rowling-choose-to-downplay-dragons" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:186 }); posts_hot_network.click({ item_type:2, location:11 })"> Why did J. K. Rowling choose to downplay dragons? </a> </li> 
+         <li class="dno js-hidden"> 
+          <div class="favicon favicon-ell" title="English Language Learners Stack Exchange"></div><a href="https://ell.stackexchange.com/questions/187807/dobby-the-house-elfs-former-owners" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:481 }); posts_hot_network.click({ item_type:2, location:11 })"> "Dobby the house-elf's former owners" </a> </li> 
+         <li class="dno js-hidden"> 
+          <div class="favicon favicon-security" title="Information Security Stack Exchange"></div><a href="https://security.stackexchange.com/questions/199226/how-to-protect-printers-from-being-hacked" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:162 }); posts_hot_network.click({ item_type:2, location:11 })"> How to protect printers from being hacked </a> </li> 
+         <li class="dno js-hidden"> 
+          <div class="favicon favicon-english" title="English Language &amp; Usage Stack Exchange"></div><a href="https://english.stackexchange.com/questions/475973/peta-wants-workers-to-bring-home-the-bagels" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:97 }); posts_hot_network.click({ item_type:2, location:11 })"> PETA wants workers to “bring home the bagels” </a> </li> 
+         <li class="dno js-hidden"> 
+          <div class="favicon favicon-rpg" title="Role-playing Games Stack Exchange"></div><a href="https://rpg.stackexchange.com/questions/137008/how-balanced-is-a-feat-that-lets-players-round-up-instead-of-down-and-win-conte" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:122 }); posts_hot_network.click({ item_type:2, location:11 })"> How balanced is a feat that lets players round up instead of down, and win contest ties? </a> </li> 
+         <li class="dno js-hidden"> 
+          <div class="favicon favicon-worldbuilding" title="Worldbuilding Stack Exchange"></div><a href="https://worldbuilding.stackexchange.com/questions/132129/could-you-do-acrobatics-and-long-distance-running-in-an-ankle-length-dress" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:579 }); posts_hot_network.click({ item_type:2, location:11 })"> Could you do acrobatics and long-distance running in an ankle-length dress? </a> </li> 
+         <li class="dno js-hidden"> 
+          <div class="favicon favicon-workplace" title="The Workplace Stack Exchange"></div><a href="https://workplace.stackexchange.com/questions/124136/what-to-do-when-previously-approved-time-off-is-being-revoked-at-the-last-second" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:423 }); posts_hot_network.click({ item_type:2, location:11 })"> What to do when previously approved time off is being revoked at the last second because my coworker requested the same days off after I did? </a> </li> 
+         <li class="dno js-hidden"> 
+          <div class="favicon favicon-stackoverflow" title="Stack Overflow"></div><a href="https://stackoverflow.com/questions/53643962/why-is-slower-than-in-v8" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:1 }); posts_hot_network.click({ item_type:2, location:11 })"> Why is &lt;= slower than &lt; in V8? </a> </li> 
+         <li class="dno js-hidden"> 
+          <div class="favicon favicon-stackoverflow" title="Stack Overflow"></div><a href="https://stackoverflow.com/questions/53683047/reasons-for-defining-non-const-get-member-functions" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:1 }); posts_hot_network.click({ item_type:2, location:11 })"> Reasons for defining non-const 'get' member functions? </a> </li> 
+        </ul> 
+        <a href="#" class="show-more js-show-more js-gps-track" data-gps-track="posts_hot_network.click({ item_type:3, location:11 })"> more hot questions </a> 
+       </div> 
+       <div id="feed-link"> 
+        <a href="/feeds/question/6659360" title="feed of this question and its answers"> 
+         <svg aria-hidden="true" class="svg-icon fc-orange-400 iconRss" width="18" height="18" viewbox="0 0 18 18">
+          <path d="M1 3c0-1.1.9-2 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V3zm14.5 12C15.5 8.1 9.9 2.5 3 2.5V5a10 10 0 0 1 10 10h2.5zm-5 0A7.5 7.5 0 0 0 3 7.5V10a5 5 0 0 1 5 5h2.5zm-5 0A2.5 2.5 0 0 0 3 12.5V15h2.5z" />
+         </svg> question feed </a> 
+       </div> 
+      </div> 
+     </div> 
+     <script>StackExchange.ready(function(){$.get('/posts/6659360/ivc/7126');});</script> 
+     <noscript>
+      <div>
+       <img src="/posts/6659360/ivc/7126" class="dno" alt="" width="0" height="0">
+      </div>
+     </noscript>
+     <div style="display:none" id="prettify-lang">
+      lang-java
+     </div>
+    </div> 
+   </div> 
+  </div> 
+  <footer id="footer" class="site-footer js-footer" role="contentinfo"> 
+   <div class="site-footer--container"> 
+    <div class="site-footer--logo"> 
+     <a href="https://stackoverflow.com">
+      <svg aria-hidden="true" class="svg-icon native iconLogoGlyphMd" width="32" height="37" viewbox="0 0 32 37">
+       <g>
+        <path fill="#BCBBBB" d="M26 33v-9h4v13H0V24h4v9z" />
+        <path d="M23.1 25.99l.68-2.95-16.1-3.35L7 23l16.1 2.99zM9.1 15.2l15 7 1.4-3-15-7-1.4 3zm4.2-7.4L26 18.4l2.1-2.5L15.4 5.3l-2.1 2.5zM21.5 0l-2.7 2 9.9 13.3 2.7-2L21.5 0zM7 30h16v-3H7v3z" fill="#F48024" />
+       </g>
+      </svg></a> 
+    </div> 
+    <nav class="site-footer--nav"> 
+     <div class="site-footer--col site-footer--col__visible js-footer-col" data-name="default"> 
+      <h5 class="-title"><a href="https://stackoverflow.com" class="js-gps-track" data-gps-track="footer.click({ location: 2, link: 15})">Stack Overflow</a></h5> 
+      <ul class="-list js-primary-footer-links"> 
+       <li class="-item"><a href="/questions" class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 16})">Questions</a></li> 
+       <li class="-item"><a href="https://stackoverflow.com/jobs" class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 17})">Jobs</a></li> 
+       <li class="-item"><a href="https://stackoverflow.com/jobs/directory/developer-jobs" class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 11})">Developer Jobs Directory</a></li> 
+       <li class="-item"><a href="https://stackoverflow.com/jobs/salary" class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 28})">Salary Calculator</a></li> 
+       <li class="-item"><a href="/help" class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 3 })">Help</a></li> 
+       <li class="-item"><a onclick="StackExchange.switchMobile(&quot;on&quot;)" class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 12 })">Mobile</a></li> 
+      </ul> 
+     </div> 
+     <div class="site-footer--col site-footer--col__visible js-footer-col" data-name="default"> 
+      <h5 class="-title"><a href="https://www.stackoverflowbusiness.com" class="js-gps-track" data-gps-track="footer.click({ location: 2, link: 19 })">Products</a></h5> 
+      <ul class="-list"> 
+       <li class="-item"><a href="https://stackoverflow.com/teams" class="js-gps-track -link" data-ga="[&quot;teams traffic&quot;,&quot;footer - site nav&quot;,&quot;stackoverflow.com/teams&quot;,null,{&quot;dimension4&quot;:&quot;teams&quot;}]" data-gps-track="footer.click({ location: 2, link: 29 })">Teams</a></li> 
+       <li class="-item"><a href="https://www.stackoverflowbusiness.com/talent" class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 20 })">Talent</a></li> 
+       <li class="-item"><a href="https://www.stackoverflowbusiness.com/advertise" class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 21 })">Engagement</a></li> 
+       <li class="-item"><a href="https://stackoverflow.com/enterprise" class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 22 })">Enterprise</a></li> 
+      </ul> 
+     </div> 
+     <div class="site-footer--col site-footer--col__visible js-footer-col" data-name="default"> 
+      <h5 class="-title"><a class="js-gps-track" data-gps-track="footer.click({ location: 2, link: 1 })" href="https://stackoverflow.com/company/about">Company</a></h5> 
+      <ul class="-list"> 
+       <li class="-item"><a class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 1 })" href="https://stackoverflow.com/company/about">About</a></li> 
+       <li class="-item"><a class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 27 })" href="https://stackoverflow.com/company/press">Press</a></li> 
+       <li class="-item"><a class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 9 })" href="https://stackoverflow.com/company/work-here">Work Here</a></li> 
+       <li class="-item"><a class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 7 })" href="https://stackoverflow.com/legal">Legal</a></li> 
+       <li class="-item"><a class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 8 })" href="https://stackoverflow.com/legal/privacy-policy">Privacy Policy</a></li> 
+       <li class="-item"><a class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 13 })" href="https://stackoverflow.com/company/contact">Contact Us</a></li> 
+      </ul> 
+     </div> 
+     <div class="site-footer--col site-footer--categories-nav site-footer--col__visible"> 
+      <a href="#" class="site-footer--back js-footer-back">
+       <svg aria-hidden="true" class="svg-icon iconArrowLeftAlt" width="18" height="18" viewbox="0 0 18 18">
+        <path d="M10.58 16L12 14.59 6.4 9 12 3.41 10.57 2l-7 7z" />
+       </svg></a> 
+      <div> 
+       <h5 class="-title"><a href="https://stackexchange.com">Stack Exchange<br> Network</a></h5> 
+       <ul class="-list"> 
+        <li class="-item"><a href="#" class="-link _expandable js-footer-category-trigger js-gps-track" data-gps-track="footer.click({ location: 2, link: 24 })" data-target="Technology">Technology</a></li> 
+        <li class="-item"><a href="#" class="-link _expandable js-footer-category-trigger js-gps-track" data-gps-track="footer.click({ location: 2, link: 24 })" data-target="Life / Arts">Life / Arts</a></li> 
+        <li class="-item"><a href="#" class="-link _expandable js-footer-category-trigger js-gps-track" data-gps-track="footer.click({ location: 2, link: 24 })" data-target="Culture / Recreation">Culture / Recreation</a></li> 
+        <li class="-item"><a href="#" class="-link _expandable js-footer-category-trigger js-gps-track" data-gps-track="footer.click({ location: 2, link: 24 })" data-target="Science">Science</a></li> 
+        <li class="-item"><a href="#" class="-link _expandable js-footer-category-trigger js-gps-track" data-gps-track="footer.click({ location: 2, link: 24 })" data-target="Other">Other</a></li> 
+       </ul> 
+      </div> 
+     </div> 
+     <div class="site-footer--categories"> 
+      <div class="site-footer--col site-footer--category js-footer-col" data-name="Technology"> 
+       <ul class="-list"> 
+        <li class="-item"><a href="https://stackoverflow.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="professional and enthusiast programmers">Stack Overflow</a></li> 
+        <li class="-item"><a href="https://serverfault.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="system and network administrators">Server Fault</a></li> 
+        <li class="-item"><a href="https://superuser.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="computer enthusiasts and power users">Super User</a></li> 
+        <li class="-item"><a href="https://webapps.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="power users of web applications">Web Applications</a></li> 
+        <li class="-item"><a href="https://askubuntu.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="Ubuntu users and developers">Ask Ubuntu</a></li> 
+        <li class="-item"><a href="https://webmasters.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="pro webmasters">Webmasters</a></li> 
+        <li class="-item"><a href="https://gamedev.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="professional and independent game developers">Game Development</a></li> 
+       </ul>
+      </div>
+      <div class="site-footer--col site-footer--category js-footer-col" data-name="Technology">
+       <ul class="-list"> 
+        <li class="-item"><a href="https://tex.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="users of TeX, LaTeX, ConTeXt, and related typesetting systems">TeX - LaTeX</a></li> 
+        <li class="-item"><a href="https://softwareengineering.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="professionals, academics, and students working within the systems development life cycle">Software Engineering</a></li> 
+        <li class="-item"><a href="https://unix.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="users of Linux, FreeBSD and other Un*x-like operating systems">Unix &amp; Linux</a></li> 
+        <li class="-item"><a href="https://apple.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="power users of Apple hardware and software">Ask Different (Apple)</a></li> 
+        <li class="-item"><a href="https://wordpress.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="WordPress developers and administrators">WordPress Development</a></li> 
+        <li class="-item"><a href="https://gis.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="cartographers, geographers and GIS professionals">Geographic Information Systems</a></li> 
+        <li class="-item"><a href="https://electronics.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="electronics and electrical engineering professionals, students, and enthusiasts">Electrical Engineering</a></li> 
+       </ul>
+      </div>
+      <div class="site-footer--col site-footer--category js-footer-col" data-name="Technology">
+       <ul class="-list"> 
+        <li class="-item"><a href="https://android.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="enthusiasts and power users of the Android operating system">Android Enthusiasts</a></li> 
+        <li class="-item"><a href="https://security.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="information security professionals">Information Security</a></li> 
+        <li class="-item"><a href="https://dba.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="database professionals who wish to improve their database skills and learn from others in the community">Database Administrators</a></li> 
+        <li class="-item"><a href="https://drupal.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="Drupal developers and administrators">Drupal Answers</a></li> 
+        <li class="-item"><a href="https://sharepoint.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="SharePoint enthusiasts">SharePoint</a></li> 
+        <li class="-item"><a href="https://ux.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="user experience researchers and experts">User Experience</a></li> 
+        <li class="-item"><a href="https://mathematica.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="users of Wolfram Mathematica">Mathematica</a></li> 
+       </ul>
+      </div>
+      <div class="site-footer--col site-footer--category js-footer-col" data-name="Technology">
+       <ul class="-list"> 
+        <li class="-item"><a href="https://salesforce.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="Salesforce administrators, implementation experts, developers and anybody in-between">Salesforce</a></li> 
+        <li class="-item"><a href="https://expressionengine.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="administrators, end users, developers and designers for ExpressionEngine® CMS">ExpressionEngine® Answers</a></li> 
+        <li class="-item"><a href="https://pt.stackoverflow.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="programadores profissionais e entusiastas">Stack Overflow em Português</a></li> 
+        <li class="-item"><a href="https://blender.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="people who use Blender to create 3D graphics, animations, or games">Blender</a></li> 
+        <li class="-item"><a href="https://networkengineering.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="network engineers">Network Engineering</a></li> 
+        <li class="-item"><a href="https://crypto.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="software developers, mathematicians and others interested in cryptography">Cryptography</a></li> 
+        <li class="-item"><a href="https://codereview.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="peer programmer code reviews">Code Review</a></li> 
+       </ul>
+      </div>
+      <div class="site-footer--col site-footer--category js-footer-col" data-name="Technology">
+       <ul class="-list"> 
+        <li class="-item"><a href="https://magento.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="users of the Magento e-Commerce platform">Magento</a></li> 
+        <li class="-item"><a href="https://softwarerecs.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="people seeking specific software recommendations">Software Recommendations</a></li> 
+        <li class="-item"><a href="https://dsp.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="practitioners of the art and science of signal, image and video processing">Signal Processing</a></li> 
+        <li class="-item"><a href="https://emacs.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="those using, extending or developing Emacs">Emacs</a></li> 
+        <li class="-item"><a href="https://raspberrypi.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="users and developers of hardware and software for Raspberry Pi">Raspberry Pi</a></li> 
+        <li class="-item"><a href="https://ru.stackoverflow.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="программистов">Stack Overflow на русском</a></li> 
+        <li class="-item"><a href="https://codegolf.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="programming puzzle enthusiasts and code golfers">Programming Puzzles &amp; Code Golf</a></li> 
+       </ul>
+      </div>
+      <div class="site-footer--col site-footer--category js-footer-col" data-name="Technology">
+       <ul class="-list"> 
+        <li class="-item"><a href="https://es.stackoverflow.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="programadores y profesionales de la informática">Stack Overflow en español</a></li> 
+        <li class="-item"><a href="https://ethereum.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="users of Ethereum, the decentralized application platform and smart contract enabled blockchain">Ethereum</a></li> 
+        <li class="-item"><a href="https://datascience.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="Data science professionals, Machine Learning specialists, and those interested in learning more about the field">Data Science</a></li> 
+        <li class="-item"><a href="https://arduino.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="developers of open-source hardware and software that is compatible with Arduino">Arduino</a></li> 
+        <li class="-item"><a href="https://bitcoin.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="Bitcoin crypto-currency enthusiasts">Bitcoin</a></li> 
+        <li class="-item"> <a href="https://stackexchange.com/sites#technology" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 26 })"> <strong> more (30) </strong> </a> </li> 
+       </ul> 
+      </div> 
+      <div class="site-footer--col site-footer--category js-footer-col" data-name="Life / Arts"> 
+       <ul class="-list"> 
+        <li class="-item"><a href="https://photo.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="professional, enthusiast and amateur photographers">Photography</a></li> 
+        <li class="-item"><a href="https://scifi.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="science fiction and fantasy enthusiasts">Science Fiction &amp; Fantasy</a></li> 
+        <li class="-item"><a href="https://graphicdesign.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="Graphic Design professionals, students, and enthusiasts">Graphic Design</a></li> 
+        <li class="-item"><a href="https://movies.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="movie and tv enthusiasts">Movies &amp; TV</a></li> 
+        <li class="-item"><a href="https://music.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="musicians, students, and enthusiasts">Music: Practice &amp; Theory</a></li> 
+        <li class="-item"><a href="https://worldbuilding.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="writers/artists using science, geography and culture to construct imaginary worlds and settings">Worldbuilding</a></li> 
+        <li class="-item"><a href="https://cooking.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="professional and amateur chefs">Seasoned Advice (cooking)</a></li> 
+       </ul>
+      </div>
+      <div class="site-footer--col site-footer--category js-footer-col" data-name="Life / Arts">
+       <ul class="-list"> 
+        <li class="-item"><a href="https://diy.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="contractors and serious DIYers">Home Improvement</a></li> 
+        <li class="-item"><a href="https://money.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="people who want to be financially literate">Personal Finance &amp; Money</a></li> 
+        <li class="-item"><a href="https://academia.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="academics and those enrolled in higher education">Academia</a></li> 
+        <li class="-item"><a href="https://law.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="legal professionals, students, and others with experience or interest in law">Law</a></li> 
+        <li class="-item"> <a href="https://stackexchange.com/sites#lifearts" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 26 })"> <strong> more (15) </strong> </a> </li> 
+       </ul> 
+      </div> 
+      <div class="site-footer--col site-footer--category js-footer-col" data-name="Culture / Recreation"> 
+       <ul class="-list"> 
+        <li class="-item"><a href="https://english.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="linguists, etymologists, and serious English language enthusiasts">English Language &amp; Usage</a></li> 
+        <li class="-item"><a href="https://skeptics.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="scientific skepticism">Skeptics</a></li> 
+        <li class="-item"><a href="https://judaism.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="those who base their lives on Jewish law and tradition and anyone interested in learning more">Mi Yodeya (Judaism)</a></li> 
+        <li class="-item"><a href="https://travel.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="road warriors and seasoned travelers">Travel</a></li> 
+        <li class="-item"><a href="https://christianity.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="committed Christians, experts in Christianity and those interested in learning more">Christianity</a></li> 
+        <li class="-item"><a href="https://ell.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="speakers of other languages learning English">English Language Learners</a></li> 
+        <li class="-item"><a href="https://japanese.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="students, teachers, and linguists wanting to discuss the finer points of the Japanese language">Japanese Language</a></li> 
+       </ul>
+      </div>
+      <div class="site-footer--col site-footer--category js-footer-col" data-name="Culture / Recreation">
+       <ul class="-list"> 
+        <li class="-item"><a href="https://gaming.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="passionate videogamers on all platforms">Arqade (gaming)</a></li> 
+        <li class="-item"><a href="https://bicycles.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="people who build and repair bicycles, people who train cycling, or commute on bicycles">Bicycles</a></li> 
+        <li class="-item"><a href="https://rpg.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="gamemasters and players of tabletop, paper-and-pencil role-playing games">Role-playing Games</a></li> 
+        <li class="-item"><a href="https://anime.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="anime and manga fans">Anime &amp; Manga</a></li> 
+        <li class="-item"><a href="https://puzzling.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="those who create, solve, and study puzzles">Puzzling</a></li> 
+        <li class="-item"><a href="https://mechanics.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="mechanics and DIY enthusiast owners of cars, trucks, and motorcycles">Motor Vehicle Maintenance &amp; Repair</a></li> 
+        <li class="-item"> <a href="https://stackexchange.com/sites#culturerecreation" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 26 })"> <strong> more (33) </strong> </a> </li> 
+       </ul> 
+      </div> 
+      <div class="site-footer--col site-footer--category js-footer-col" data-name="Science"> 
+       <ul class="-list"> 
+        <li class="-item"><a href="https://mathoverflow.net" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="professional mathematicians">MathOverflow</a></li> 
+        <li class="-item"><a href="https://math.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="people studying math at any level and professionals in related fields">Mathematics</a></li> 
+        <li class="-item"><a href="https://stats.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="people interested in statistics, machine learning, data analysis, data mining, and data visualization">Cross Validated (stats)</a></li> 
+        <li class="-item"><a href="https://cstheory.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="theoretical computer scientists and researchers in related fields">Theoretical Computer Science</a></li> 
+        <li class="-item"><a href="https://physics.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="active researchers, academics and students of physics">Physics</a></li> 
+        <li class="-item"><a href="https://chemistry.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="scientists, academics, teachers, and students in the field of chemistry">Chemistry</a></li> 
+        <li class="-item"><a href="https://biology.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="biology researchers, academics, and students">Biology</a></li> 
+       </ul>
+      </div>
+      <div class="site-footer--col site-footer--category js-footer-col" data-name="Science">
+       <ul class="-list"> 
+        <li class="-item"><a href="https://cs.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="students, researchers and practitioners of computer science">Computer Science</a></li> 
+        <li class="-item"><a href="https://philosophy.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="those interested in the study of the fundamental nature of knowledge, reality, and existence">Philosophy</a></li> 
+        <li class="-item"> <a href="https://stackexchange.com/sites#science" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 26 })"> <strong> more (10) </strong> </a> </li> 
+       </ul> 
+      </div> 
+      <div class="site-footer--col site-footer--category js-footer-col" data-name="Other"> 
+       <ul class="-list"> 
+        <li class="-item"><a href="https://meta.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="meta-discussion of the Stack Exchange family of Q&amp;A websites">Meta Stack Exchange</a></li> 
+        <li class="-item"><a href="https://stackapps.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="apps, scripts, and development with the Stack Exchange API">Stack Apps</a></li> 
+        <li class="-item"><a href="https://api.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="programmatic interaction with Stack Exchange sites">API</a></li> 
+        <li class="-item"><a href="https://data.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="querying Stack Exchange data using SQL">Data</a></li> 
+        <li class="-item"><a href="https://area51.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="proposing new sites in the Stack Exchange network">Area 51</a></li> 
+       </ul> 
+      </div> 
+     </div> 
+    </nav> 
+    <div class="site-footer--copyright fs-fine"> 
+     <ul class="-list"> 
+      <li class="-item"><a class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link:4 })" href="https://stackoverflow.blog?blb=1">Blog</a></li> 
+      <li class="-item"><a href="https://www.facebook.com/officialstackoverflow/" class="-link">Facebook</a></li> 
+      <li class="-item"><a href="https://twitter.com/stackoverflow" class="-link">Twitter</a></li> 
+      <li class="-item"><a href="https://linkedin.com/company/stack-overflow" class="-link">LinkedIn</a></li> 
+     </ul> 
+     <p class="mt-auto mb24"> site design / logo © 2018 Stack Exchange Inc; user contributions licensed under <a href="https://creativecommons.org/licenses/by-sa/3.0/" rel="license">cc by-sa 3.0</a> with <a href="https://stackoverflow.blog/2009/06/25/attribution-required/" rel="license">attribution required</a>. <span id="svnrev">rev&nbsp;2018.12.7.32344</span> </p> 
+    </div> 
+   </div> 
+  </footer> 
+  <script>StackExchange.ready(function () { StackExchange.responsiveness.addSwitcher(); })</script> 
+  <noscript> 
+   <div id="noscript-warning">
+    Stack Overflow works best with JavaScript enabled 
+    <img src="https://pixel.quantserve.com/pixel/p-c1rF4kxgLUzNc.gif" alt="" class="dno"> 
+   </div> 
+  </noscript> 
+  <script>
+            (function(i, s, o, g, r, a, m) {
+                i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function() { (i[r].q = i[r].q || []).push(arguments) }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m);
+            })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+            StackExchange.ready(function () {
+
+                StackExchange.ga.init({
+                    sendTitles: true,
+                    tracker: window.ga,
+                    trackingCodes: [
+                        'UA-108242619-1'
+                    ]
+                });
+
+
+
+                    StackExchange.ga.setDimension('dimension2', '|java|servlets|paypal|vpn|sslhandshakeexception|');
+
+                    StackExchange.ga.setDimension('dimension3', 'Questions/Show');
+
+
+                StackExchange.ga.trackPageView();
+            });
+            
+/**/
+            
+            var _qevents = _qevents || [],
+            _comscore = _comscore || [];
+            (function() {
+                var ssl = 'https:' == document.location.protocol,
+                    s = document.getElementsByTagName('script')[0],
+                    qc = document.createElement('script');
+                 qc.async = true;
+                    qc.src = (ssl ? 'https://secure' : 'http://edge') + '.quantserve.com/quant.js';
+                    s.parentNode.insertBefore(qc, s);
+                    _qevents.push({ qacct: "p-c1rF4kxgLUzNc" });
+/**/
+                 var sc = document.createElement('script');
+                    sc.async = true;
+                    sc.src = (ssl ? 'https://sb' : 'http://b') + '.scorecardresearch.com/beacon.js';
+                    s.parentNode.insertBefore(sc, s);
+                    _comscore.push({ c1: "2", c2: "17440561" });
+            })();
+            
+
+</script>   
+ </body>
+</html>
